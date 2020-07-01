@@ -1,0 +1,11 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Jul 01 14:37:49 KST 2020
+https\://oss.sonatype.org/content/repositories/snapshots/.error=
+https\://repo.spring.io/snapshot/.error=
+https\://repo.spring.io/snapshot/.lastUpdated=1593581869440
+https\://repo.spring.io/milestone/.lastUpdated=1593581869223
+file\://C\:\\Users\\yjlee\\eclipse-workspace\\lk11\\Project_LK11/m2/repository/.error=
+https\://oss.sonatype.org/content/repositories/snapshots/.lastUpdated=1593581869018
+https\://repo.maven.apache.org/maven2/.lastUpdated=1593581869743
+https\://repo.spring.io/milestone/.error=
+file\://C\:\\Users\\yjlee\\eclipse-workspace\\lk11\\Project_LK11/m2/repository/.lastUpdated=1593581868803
