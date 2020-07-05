@@ -39,4 +39,10 @@ public class ViewController {
 		log.info(">> showIndexView");
 		return "index";
 	}
+	
+	@RequestMapping(path = "/datatableEx")
+	public String showDataTablesExView() {
+		log.info(">> showDataTablesExView");
+		return "datatableEx";
+	}
 }
