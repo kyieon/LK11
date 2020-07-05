@@ -19,7 +19,7 @@ public class ViewController {
 		if(!isLogin(authentication)) {
 			return "redirect:/login";
 		}
-		return "redirect:/index";
+		return "redirect:/home";
 	}
 	
 	private boolean isLogin(Authentication authentication) {
@@ -34,15 +34,33 @@ public class ViewController {
 		return "login";
 	}
 	
-	@RequestMapping(path = "/index")
-	public String showIndexView() {
-		log.info(">> showIndexView");
-		return "index";
+	@RequestMapping(path = "/home")
+	public String showHomeView() {
+		log.info(">> showHomeView");
+		return "home";
 	}
 	
-	@RequestMapping(path = "/datatableEx")
-	public String showDataTablesExView() {
-		log.info(">> showDataTablesExView");
-		return "datatableEx";
+	
+	/**
+	 * 시스템
+	 */
+	
+	//환경 설정
+	@RequestMapping(path = "/system/configuration")
+	public String showConfigurationView() {
+		log.info(">> showConfigurationView");
+		return "/system/configuration";
 	}
+	
+//	@RequestMapping(path = "/index")
+//	public String showIndexView() {
+//		log.info(">> showIndexView");
+//		return "index";
+//	}
+//	
+//	@RequestMapping(path = "/datatableEx")
+//	public String showDataTablesExView() {
+//		log.info(">> showDataTablesExView");
+//		return "datatableEx";
+//	}
 }
