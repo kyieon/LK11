@@ -102,44 +102,32 @@
                                             <div class="form-group col-md-12">
 	                                           	<label for="inputAddress">외부연계(IEC61850서버) IET</label>
 	                                            <div class="form-inline">
-			                                       <div class="form-group">
+			                                       <div class="form-group" style="width: calc(100% - 200px)">
 			                                           	<input type="text" class="form-control" style="width: 100% !important" id="inputAddress">
 			                                       </div>
-			                                       <div class="form-group mx-sm-3">
+			                                       <div class="form-group" style="margin-left: 15px">
 			                                           	<button type="submit" class="btn btn-primary">다운로드</button>
-			                                           	<button type="submit" class="btn btn-primary">업로드</button>
+			                                           	<button type="submit" class="btn btn-primary" style="margin-left: 10px">업로드</button>
 			                                       </div>
 	                                            </div>
                                             </div>
                                         </div>
-                                        <div class="form-inline">
-	                                       <div class="form-group mb-2">
-	                                           <label for="staticEmail2" class="sr-only">Email</label>
-	                                           <input type="text" readonly="" class="form-control-plaintext" id="staticEmail2" value="email@example.com">
-	                                       </div>
-	                                       <div class="form-group mx-sm-3 mb-2">
-	                                           <label for="inputPassword2" class="sr-only">Password</label>
-	                                           <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-	                                       </div>
-	                                       <button type="submit" class="btn btn-primary mb-6">Confirm identity</button>
-	                                   </div>
-                                        <!-- 
                                         <div class="form-row">
-                                            <div class="form-group col-md-8">
-	                                            <label for="inputAddress">외부연계(IEC61850서버) IET</label>
-	                                            <input type="text" class="form-control col-md-8" id="inputAddress">
-		                                        <button type="submit" class="btn btn-primary col-md-8">다운로드</button>
-		                                        <button type="submit" class="btn btn-primary col-md-8">업로드</button>
+                                            <div class="form-group col-md-12">
+	                                            <label for="inputAddress">외부연계(IEC61850서버) SCL</label>
+	                                            <div class="form-inline">
+			                                       <div class="form-group" style="width: calc(100% - 200px)">
+			                                           	<input type="text" class="form-control" style="width: 100% !important" id="inputAddress">
+			                                       </div>
+			                                       <div class="form-group" style="margin-left: 15px">
+			                                           	<button type="submit" class="btn btn-primary">다운로드</button>
+			                                           	<button type="submit" class="btn btn-primary" style="margin-left: 10px">업로드</button>
+			                                       </div>
+	                                            </div>
                                             </div>
                                         </div>
-                                         -->
-                                        <div class="form-group">
-                                            <label for="inputAddress">외부연계(IEC61850서버) SCL</label>
-                                            <input type="text" class="form-control" id="inputAddress">
-	                                        <button type="submit" class="btn btn-primary">다운로드</button>
-	                                        <button type="submit" class="btn btn-primary">업로드</button>
-                                        </div>
-                                        <button type="submit" style="float: right" class="btn btn-primary">적용</button>
+                                        
+                                        <button type="submit" class="btn btn-primary">적용</button>
                                     </form>
                                 </div>
                             </div>
