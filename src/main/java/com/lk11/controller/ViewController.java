@@ -63,4 +63,101 @@ public class ViewController {
 //		log.info(">> showDataTablesExView");
 //		return "datatableEx";
 //	}
+	
+	
+	/**
+	 * 소프트웨어 이력
+	 * @return
+	 */
+	@RequestMapping(path = "/history/softwarehistory")
+	public String showSoftwareHistory() {
+		log.info(">> softwarehistory");
+		return "/history/softwarehistory";
+	}
+	
+	
+	/**
+	 * 이더넷 이력
+	 * @return
+	 */
+	@RequestMapping(path = "/history/ethernethistory")
+	public String showEthernetHistory() {
+		log.info(">> ethernethistory");
+		return "/history/ethernethistory";
+	}
+	
+	
+	/**
+	 * 이더넷 스위치 상태
+	 * @return
+	 */
+	@RequestMapping(path = "/history/ethernetswitchstate")
+	public String showEthernetSwitchState() {
+		log.info(">> ethernetswitchstate");
+		return "/history/ethernetswitchstate";
+	}
+	
+	
+	
+	/**
+	 * IED 61850 연결 상태
+	 * @return
+	 */
+	@RequestMapping(path = "/history/iedconnectionstate")
+	public String showIedConnectionState() {
+		log.info(">> iedconnectionstate");
+		return "/history/iedconnectionstate";
+	}
+	
+	
+	
+	
+	
+	/**
+	 * GOOSE 실시간이력
+	 * @return
+	 */
+	@RequestMapping(path = "/goose/realtimehistory")
+	public String showRealTimeHistory() {
+		log.info(">>goose realtimehistory");
+		return "/goose/realtimehistory";
+	}
+	
+	
+	/**
+	 * GOOSE 상태
+	 * @return
+	 */
+	@RequestMapping(path = "/goose/goosestate")
+	public String showGooseState() {
+		log.info(">> goosestate");
+		return "/goose/goosestate";
+	}
+	
+	
+	
+	
+	/**
+	 * MMS 실시간이력
+	 * @return
+	 */
+	@RequestMapping(path = "/mms/realtimehistory")
+	public String showMmsRealTimeHistory() {
+		log.info(">>mms realtimehistory");
+		return "/mms/realtimehistory";
+	}
+	
+	/**
+	 * REPORT 상태
+	 * @return
+	 */
+	@RequestMapping(path = "/mms/reportstate")
+	public String showReportState() {
+		log.info(">> reportstate");
+		return "/mms/reportstate";
+	}
+	
+	
+	
+	
 }

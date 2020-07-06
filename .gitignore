@@ -2,6 +2,7 @@ HELP.md
 target/
 logs/
 h2/
+bin/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**

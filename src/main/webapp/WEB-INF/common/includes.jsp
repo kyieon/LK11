@@ -12,6 +12,8 @@
  -->
 
 <link rel="stylesheet" type="text/css" href="/resources/css/common.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css" />
 
 <script type="text/javascript" src="/resources/js/lib/jquery/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="/resources/js/layout/easion.js"></script>
@@ -24,3 +26,6 @@
 <script type="text/javascript" src="/resources/js/lib/custom/ajax-advisor.js"></script>
 
 <script type="text/javascript" src="/resources/js/common.js"></script>
+
+
+

@@ -53,7 +53,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.anyRequest().authenticated()
 		.and()
 		.formLogin().loginPage("/login")
-		.defaultSuccessUrl("/index")
+		.defaultSuccessUrl("/home")
 		.and()
 		.logout()
 		.deleteCookies("SESSION_ID")
