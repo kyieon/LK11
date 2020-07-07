@@ -160,4 +160,31 @@ public class ViewController {
 	
 	
 	
+	
+	//유효성 검사
+	
+	
+	/**
+	 * 운영기준 검사
+	 * @return
+	 */
+	@RequestMapping(path = "/validity/operatingstandardsexam")
+	public String shoOperatingStandardsExam() {
+		log.info(">> operatingstandardsexam");
+		return "/validity/operatingstandardsexam";
+	}
+	
+	
+	/**
+	 * IET 검사
+	 * @return
+	 */
+	@RequestMapping(path = "/validity/ietexam")
+	public String showIetExam() {
+		log.info(">> ietexam");
+		return "/validity/ietexam";
+	}
+	
+	
+	
 }

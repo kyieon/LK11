@@ -48,8 +48,8 @@
 	<div class="dash-nav-dropdown">
 		<a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">유효성 검사</a>
 		<div class="dash-nav-dropdown-menu">
-			<a href="chartjs.html" class="dash-nav-dropdown-item">운영기준 검사</a>
-			<a href="chartjs.html" class="dash-nav-dropdown-item">IET 검사</a>
+			<a href="/validity/operatingstandardsexam" class="dash-nav-dropdown-item">운영기준 검사</a>
+			<a href="/validity/ietexam" class="dash-nav-dropdown-item">IET 검사</a>
 		</div>
 	</div>
 </nav>
