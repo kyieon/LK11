@@ -33,7 +33,7 @@
 			<a href="/mms/reportstate" class="dash-nav-dropdown-item">Report 상태</a>
 		</div>
 	</div>
-	<a href="#!" class="dash-nav-item">네트워크 패킷</a>
+	<a href="/network/networkpacket" class="dash-nav-item">네트워크 패킷</a>
 	<div class="dash-nav-dropdown">
 		<a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">시스템</a>
 		<div class="dash-nav-dropdown-menu">

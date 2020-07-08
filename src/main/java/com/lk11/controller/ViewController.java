@@ -40,31 +40,6 @@ public class ViewController {
 		return "home";
 	}
 	
-	
-	/**
-	 * 시스템
-	 */
-	
-	//환경 설정
-	@RequestMapping(path = "/system/configuration")
-	public String showConfigurationView() {
-		log.info(">> showConfigurationView");
-		return "/system/configuration";
-	}
-	
-//	@RequestMapping(path = "/index")
-//	public String showIndexView() {
-//		log.info(">> showIndexView");
-//		return "index";
-//	}
-//	
-//	@RequestMapping(path = "/datatableEx")
-//	public String showDataTablesExView() {
-//		log.info(">> showDataTablesExView");
-//		return "datatableEx";
-//	}
-	
-	
 	/**
 	 * 소프트웨어 이력
 	 * @return
@@ -157,16 +132,27 @@ public class ViewController {
 		return "/mms/reportstate";
 	}
 	
-	
-	
-	
-	
-	//유효성 검사
-	
+	/**
+	 * 네트워크 패킷
+	 * @return
+	 */
+	@RequestMapping(path = "/network/networkpacket")
+	public String showNetworkPacket() {
+		log.info(">> networkpacket");
+		return "/network/networkpacket";
+	}
 	
 	/**
-	 * 운영기준 검사
-	 * @return
+	 * 시스템 - 환경 설정
+	 */
+	@RequestMapping(path = "/system/configuration")
+	public String showConfigurationView() {
+		log.info(">> showConfigurationView");
+		return "/system/configuration";
+	}
+	
+	/**
+	 * 유효성 검사 - 운영기준 검사
 	 */
 	@RequestMapping(path = "/validity/operatingstandardsexam")
 	public String shoOperatingStandardsExam() {
@@ -176,15 +162,11 @@ public class ViewController {
 	
 	
 	/**
-	 * IET 검사
-	 * @return
+	 * 유효성 검사 - IET 검사
 	 */
 	@RequestMapping(path = "/validity/ietexam")
 	public String showIetExam() {
 		log.info(">> ietexam");
 		return "/validity/ietexam";
 	}
-	
-	
-	
 }
