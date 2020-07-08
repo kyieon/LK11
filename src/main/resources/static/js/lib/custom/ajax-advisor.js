@@ -46,7 +46,7 @@
             cache: false,
             async : option.async || true,
             type: option.type,
-            url: (ctx + '/' + option.url).replace('//', '/'),
+            url: ( option.url || '' ).replace('//', '/'),
             data: option.data,
             dataType: option.dataType || 'json',
             contentType: isFormData(option.data) ? false : (option.contentType || 'application/json'),
@@ -87,7 +87,7 @@
             cache: false,
             async : option.async || true,
             type: option.type,
-            url: (ctx + '/' + option.url).replace('//', '/'),
+            url: ( option.url || '' ).replace('//', '/'),
             data: option.data,
             contentType: isFormData(option.data) ? false : (option.contentType || 'application/json'),
             processData: isFormData(option.data) ? false : true,
@@ -121,7 +121,7 @@
             cache: false,
             async : false,
             type: option.type,
-            url: (ctx + '/' + option.url).replace('//', '/'),
+            url: ( option.url || '' ).replace('//', '/'),
             data: option.data,
             contentType: isFormData(option.data) ? false : (option.contentType || 'application/json'),
             processData: isFormData(option.data) ? false : true,
@@ -156,7 +156,7 @@
 		$(form).ajaxSubmit({
 			cache: false,
 			type: option.type,
-			url: (ctx + '/' + option.url).replace('//', '/'),
+			url: ( option.url || '' ).replace('//', '/'),
 			//enctype: 'multipart/form-data',
 			//dataType: 'json',
 			beforeSubmit: function(data, frm, opt) {
@@ -198,7 +198,7 @@
 
 	function ajaxBinary(option) {
 		$.ajax({
-			url: (ctx + '/' + option.url).replace('//', '/'),
+			url: ( option.url || '' ).replace('//', '/'),
 			dataType: 'native',
 			data: option.data,
             xhrFields: {

@@ -16,7 +16,7 @@
         	<%@ include file="/WEB-INF/common/toolbar.jsp" %>
             <main class="dash-content">
             	<div class="container-fluid">
-            		 <h1 class="dash-title">이더넷스위치 이력</h1>
+            		 <h1 class="dash-title">IEC61850 연결상태</h1>
             		 <table id="example" class="display" style="width: 100%"></table>
             		 <table id="example1" class="display" style="width: 100%; padding-top:100px;"></table>
             		

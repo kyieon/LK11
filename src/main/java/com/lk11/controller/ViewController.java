@@ -180,6 +180,15 @@ public class ViewController {
 	}
 	
 	/**
+	 * 시스템 - 사용자 계정
+	 */
+	@RequestMapping(path = "/system/usermanagement")
+	public String showSystemUserManagementView() {
+		log.info(">> showSystemUserManagementView");
+		return "/system/usermanagement";
+	}
+	
+	/**
 	 * 시스템 - 환경 설정
 	 */
 	@RequestMapping(path = "/system/configuration")

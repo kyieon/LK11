@@ -4,5 +4,7 @@ CREATE TABLE USER (
   id VARCHAR(50) NOT NULL,
   name VARCHAR(50) NULL,
   password VARCHAR(100) NULL,
+  role VARCHAR(100) NULL,
+  isActive BOOLEAN NULL,
   PRIMARY KEY(id)
 );
