@@ -151,6 +151,15 @@ public class ViewController {
 		log.info(">> showSystemEquip");
 		return "/system/systemequip";
 	}
+
+	/**
+	 * 시스템 - 포트 설정
+	 */
+	@RequestMapping(path = "/system/port")
+	public String showSystemPortView() {
+		log.info(">> showSystemPortView");
+		return "/system/port";
+	}
 	
 	/**
 	 * 시스템 - 환경 설정
@@ -160,7 +169,7 @@ public class ViewController {
 		log.info(">> showConfigurationView");
 		return "/system/configuration";
 	}
-	
+
 	/**
 	 * 유효성 검사 - 운영기준 검사
 	 */
