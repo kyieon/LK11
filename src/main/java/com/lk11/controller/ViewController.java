@@ -162,6 +162,24 @@ public class ViewController {
 	}
 	
 	/**
+	 * 시스템 - 네트워크 카드 (NIC)
+	 */
+	@RequestMapping(path = "/system/networkcardnic")
+	public String showSystemNetworkCardNicView() {
+		log.info(">> showSystemNetworkCardNicView");
+		return "/system/networkcardnic";
+	}
+
+	/**
+	 * 시스템 - 패킷처리 제외
+	 */
+	@RequestMapping(path = "/system/packetignore")
+	public String showSystemPacketIgnoreView() {
+		log.info(">> showSystemPacketIgnoreView");
+		return "/system/packetignore";
+	}
+	
+	/**
 	 * 시스템 - 환경 설정
 	 */
 	@RequestMapping(path = "/system/configuration")

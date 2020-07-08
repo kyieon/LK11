@@ -39,8 +39,8 @@
 		<div class="dash-nav-dropdown-menu">
 			<a href="/system/systemequip" class="dash-nav-dropdown-item">시스템 장치</a>
 			<a href="/system/port" class="dash-nav-dropdown-item">포트 설정</a>
-			<a href="chartjs.html" class="dash-nav-dropdown-item">네트워크 카드(NIC)</a>
-			<a href="chartjs.html" class="dash-nav-dropdown-item">패킷처리 제외</a>
+			<a href="/system/networkcardnic" class="dash-nav-dropdown-item">네트워크 카드(NIC)</a>
+			<a href="/system/packetignore" class="dash-nav-dropdown-item">패킷처리 제외</a>
 			<a href="chartjs.html" class="dash-nav-dropdown-item">사용자 계정</a>
 			<a href="/system/configuration" class="dash-nav-dropdown-item">환경 설정</a>
 		</div>
