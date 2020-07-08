@@ -143,6 +143,16 @@ public class ViewController {
 	}
 	
 	/**
+	 * 시스템 - 시스템 장치
+	 * @return
+	 */
+	@RequestMapping(path = "/system/systemequip")
+	public String showSystemEquip() {
+		log.info(">> showSystemEquip");
+		return "/system/systemequip";
+	}
+	
+	/**
 	 * 시스템 - 환경 설정
 	 */
 	@RequestMapping(path = "/system/configuration")
