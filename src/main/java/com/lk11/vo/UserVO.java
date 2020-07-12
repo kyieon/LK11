@@ -1,12 +1,25 @@
 package com.lk11.vo;
 
+import com.lk11.common.file.Column;
+import com.lk11.common.file.CSVFile;
+
+@CSVFile
 public class UserVO {
 	
+	@Column(name = "아이디", index = 0)
 	private String id;
+	
+	@Column(name = "암호", index = 1)
 	private String password;
+	
+	@Column(name = "이름", index = 2)
 	private String name;
+	
+	@Column(name = "권한", index = 3)
 	private String role;
+	
 	private boolean isActive;
+	
 	
 	public String getId() {
 		return id;
@@ -38,5 +51,10 @@ public class UserVO {
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "UserVO [id=" + id + ", password=" + password + ", name=" + name + ", role=" + role + ", isActive="
+				+ isActive + "]";
+	}
 }

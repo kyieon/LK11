@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,8 +32,14 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
-	public UserVO getData(@PathVariable("id") String id) {
+	public ResponseI<UserVO> getData(@PathVariable("id") String id) {
 		log.info(">> Input Request >> param :: " + id);
-		return userService.getUser(id);
+		return ResponseBuilder.<UserVO>build().setData(userService.getUser(id));
+	}
+	
+	@RequestMapping(path = "/export", method = RequestMethod.GET)
+	public ResponseEntity<?> export() throws Exception {
+		log.info(">> Input Request");
+		return userService.export();
 	}
 }

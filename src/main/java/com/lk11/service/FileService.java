@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,17 +15,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.google.common.net.HttpHeaders;
 
-import ch.qos.logback.core.CoreConstants;
-
 @Service
 public class FileService {
 
 	private Logger log = LoggerFactory.getLogger(FileService.class);
 
-	public <T> void downloadCsv(List<T> datas, Class<T> clz) {
-
-	}
-	
 	public void uploadFile(MultipartFile multipartFile, String path) throws IllegalStateException, IOException {
 		File file = new File(path);
 		file.mkdirs();
