@@ -25,14 +25,20 @@ public class UserVO {
 	@JsonAlias("UserType")
 	private String type;
 	
+	@Column(name = "설명", index = 4)
+	@JsonAlias("UserDesc")
+	private String desc;
+	
+	@Column(name = "등록시간", index = 5)
 	@JsonAlias("UserRegistertime")
 	private String createTime;
 	
+	@Column(name = "수정시간", index = 6)
 	@JsonAlias("UserUpdatetime")
 	private String updateTime;
 	
 	@JsonAlias("UserEnabled")
-	private boolean isEnable;
+	private Boolean enabled;
 
 	public String getId() {
 		return id;
@@ -82,18 +88,26 @@ public class UserVO {
 		this.updateTime = updateTime;
 	}
 
-	public boolean isEnable() {
-		return isEnable;
+	public Boolean getEnabled() {
+		return enabled;
 	}
 
-	public void setEnable(boolean isEnable) {
-		this.isEnable = isEnable;
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
 
 	@Override
 	public String toString() {
-		return "UserVO [id=" + id + ", password=" + password + ", name=" + name + ", type=" + type + ", createTime="
-				+ createTime + ", updateTime=" + updateTime + ", isEnable=" + isEnable + "]";
+		return "UserVO [id=" + id + ", password=" + password + ", name=" + name + ", type=" + type + ", desc=" + desc
+				+ ", createTime=" + createTime + ", updateTime=" + updateTime + ", enabled=" + enabled + "]";
 	}
-	
+
 }

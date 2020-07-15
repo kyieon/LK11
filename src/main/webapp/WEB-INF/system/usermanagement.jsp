@@ -111,7 +111,7 @@
                             {title: '등록해제', data: null, "render": function ( data, type, row, meta ) {
                                 return '<input type="button" onClick="del(\'' + row.id + '\')" value="삭제"/>'
                             }},
-                            {title: '잠김해제', data: 'enable', "render": function ( data, type, row, meta ) {
+                            {title: '잠김해제', data: 'enabled', "render": function ( data, type, row, meta ) {
                                 if(data) {
                                     return '<input type="button" onClick="unLock(\'' + row.id + '\')" value="잠김"/>';
                                 }

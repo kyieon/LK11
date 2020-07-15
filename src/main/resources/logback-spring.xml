@@ -35,10 +35,11 @@
 	<logger name="jdbc.audit" level="OFF" />
 	<logger name="jdbc.resultset" level="OFF" />
 	<logger name="jdbc.resultsettable" level="OFF" />
-
+	
+	<logger name="com.zaxxer" level="INFO" />
 	<logger name="org.springframework" level="INFO" />
 	
-	<root level="INFO">
+	<root level="DEBUG">
 		<appender-ref ref="console" />
 		<!-- 
 		<appender-ref ref="dailyRollingFileAppender" />
