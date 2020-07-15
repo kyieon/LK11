@@ -104,13 +104,14 @@
                         , "ordering": false
                         , "columns" : [
                             {title: 'ID', data: 'id'},
-                            {title: 'Password', data: 'password'},
 							{title: '이름', data: 'name'},
-                            {title: '권한', data: 'role'},
+                            {title: '권한', data: 'type'},
+                            {title: '등록시간', data: 'createTime'},
+                            {title: '수정시간', data: 'updateTime'},
                             {title: '등록해제', data: null, "render": function ( data, type, row, meta ) {
                                 return '<input type="button" onClick="del(\'' + row.id + '\')" value="삭제"/>'
                             }},
-                            {title: '잠김해제', data: 'active', "render": function ( data, type, row, meta ) {
+                            {title: '잠김해제', data: 'enable', "render": function ( data, type, row, meta ) {
                                 if(data) {
                                     return '<input type="button" onClick="unLock(\'' + row.id + '\')" value="잠김"/>';
                                 }

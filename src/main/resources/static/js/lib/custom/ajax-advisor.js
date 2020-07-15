@@ -56,7 +56,7 @@
             },
             success: function(res) {
             	res = convertJSONMessage(res);
-            	if(!res.result) {
+            	if(!res.success) {
 					console.log(res.message || '', false);
 					return;
 				}
@@ -96,7 +96,7 @@
             },
             success: function(res) {
             	res = convertJSONMessage(res);
-            	if(!res.result) {
+            	if(!res.success) {
 					console.log(res.message || '', false);
 					return;
 				}
@@ -130,7 +130,7 @@
             },
             success: function(res) {
             	res = convertJSONMessage(res);
-            	if(!res.result) {
+            	if(!res.success) {
 					console.log(res.message || '', false);
 					return;
 				}
@@ -172,7 +172,7 @@
 			},
 			success: function(res) {
 				res = convertJSONMessage(res);
-				if(!res.result) {
+				if(!res.success) {
 					console.log(res.message || '', false);
 					return;
 				}

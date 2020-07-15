@@ -3,10 +3,10 @@ package com.lk11.common.response;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class DefaultResponse<T> implements ResponseI<T> {
+public class ResponseBody<T> implements ResponseI<T> {
 
 	private String message;
-	private boolean result = true;
+	private boolean success = false;
 	private T data;
 	
 	public String getMessage() {
@@ -20,13 +20,13 @@ public class DefaultResponse<T> implements ResponseI<T> {
 	}
 
 	@Override
-	public boolean isResult() {
-		return result;
+	public boolean isSuccess() {
+		return success;
 	}
-	
+
 	@Override
-	public ResponseI<T> setResult(boolean result) {
-		this.result = result;
+	public ResponseI<T> setSuccess(boolean success) {
+		this.success = success;
 		return this;
 	}
 

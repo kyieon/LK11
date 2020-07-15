@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.Http403ForbiddenEntryPoint;
 
+import com.lk11.common.auth.RestAuthenticationProvider;
 import com.lk11.service.AuthService;
 
 @EnableWebSecurity
@@ -22,15 +23,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	private AuthService authService;
 
 	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-	
-	@Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-        authenticationProvider.setUserDetailsService(authService);
-        authenticationProvider.setPasswordEncoder(passwordEncoder());
+    public RestAuthenticationProvider authenticationProvider() {
+		RestAuthenticationProvider authenticationProvider = new RestAuthenticationProvider();
+        authenticationProvider.setUserAuthService(authService);
         return authenticationProvider;
     }
 
@@ -49,7 +44,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http
 		.csrf().disable()
 		.authorizeRequests()
-		.antMatchers("/", "/login").permitAll()
+		.antMatchers("/", "/login", "/api/**/*").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin().loginPage("/login")

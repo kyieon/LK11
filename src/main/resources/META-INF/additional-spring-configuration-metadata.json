@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "rest.ip",
+    "type": "java.lang.String",
+    "description": "A description for 'rest.ip'"
+  },
+  {
+    "name": "rest.port",
+    "type": "java.lang.String",
+    "description": "A description for 'rest.port'"
+  }
+]}
