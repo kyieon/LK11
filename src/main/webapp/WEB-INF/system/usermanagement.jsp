@@ -28,50 +28,50 @@
                         <div class="col-xl-12">
                             <div class="card easion-card">
                                 <div class="card-body">
-                                    <form>
+                                    <form id="userForm">
                                         <div class="form-group row">
-                                            <label for="inputName" class="col-sm-2 col-form-label">ID</label>
+                                            <label for="inputID" class="col-sm-2 col-form-label">ID</label>
                                             <div class="col-sm-3">
-                                                <input type="name" class="form-control" id="inputName">
+                                                <input name="id" class="form-control" id="inputID">
                                             </div>
                                             <div class="col-sm-2">
                                                 <button type="button" class="btn btn-primary">중복 확인</button>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputIP" class="col-sm-2 col-form-label">비밀번호</label>
+                                            <label for="inputPwd" class="col-sm-2 col-form-label">비밀번호</label>
                                             <div class="col-sm-4">
-                                                <input type="name" class="form-control" id="inputIP">
+                                                <input name="pwd" type="password" class="form-control" id="inputPwd">
                                             </div>
-                                            <label for="inputIP" class="col-sm-2 col-form-label">비밀번호 확인</label>
+                                            <label for="inputPwd2" class="col-sm-2 col-form-label">비밀번호 확인</label>
                                             <div class="col-sm-4">
-                                                <input type="name" class="form-control" id="inputIP">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="inputIP" class="col-sm-2 col-form-label">이름</label>
-                                            <div class="col-sm-4">
-                                                <input type="name" class="form-control" id="inputIP">
+                                                <input name="pwd2" type="password" class="form-control" id="inputPwd2">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputRole" class="col-sm-2 col-form-label">권한</label>
+                                            <label for="inputName" class="col-sm-2 col-form-label">이름</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="inputRoles">
-                                                    <option>관리자</option>
-                                                    <option>운영자</option>
+                                                <input name="name" class="form-control" id="inputName">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputType" class="col-sm-2 col-form-label">권한</label>
+                                            <div class="col-sm-4">
+                                                <select name="type" class="form-control" id="inputType">
+                                                    <option value="utAdmin">관리자</option>
+                                                    <option value="utUser">운영자</option>
                                                 </select>                                
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="inputDesc" class="col-sm-2 col-form-label">설명</label>
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" id="inputDesc" rows="3"></textarea>
+                                                <textarea name="desc" class="form-control" id="inputDesc" rows="3"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row" style="text-align: center; margin: 0 auto; display: inherit;">
-                                            <button type="submit" class="btn btn-primary">등록</button>
-                                            <button type="button" class="btn btn-outline-secondary">취소</button>
+                                            <button type="button" class="btn btn-primary" onclick="add()">등록</button>
+                                            <button type="button" class="btn btn-outline-secondary" onclick="cancle()">취소</button>
                                         </div>
                                     </form>
                                 </div>
@@ -84,8 +84,70 @@
     </div>
     
     <script type="text/javascript">
+
+    	function add() {
+        	var form = $('#userForm');
+    		var formData = form.serializeArray()
+        	console.log(formData)
+    		
+    		var id = (_.find(formData, (data) => data.name == 'id') || '').value
+    		if(!id) {
+				alert('아이디를 입력 해 주세요.')
+				return
+            }
+			
+    		var pwd = (_.find(formData, (data) => data.name == 'pwd') || '').value
+            if(!pwd) {
+				alert('비밀번호를 입력 해 주세요.')
+				return
+            }
+				
+            var pwd2 = (_.find(formData, (data) => data.name == 'pwd2') || '').value
+            if(!pwd2) {
+            	alert('비밀번호 확인을 입력 해 주세요.')
+				return
+            }
+                
+			if(pwd != pwd2) {
+				alert('비밀번호가 맞지 않습니다.')
+				return
+            }
+
+			var name = (_.find(formData, (data) => data.name == 'name') || '').value
+    		if(!name) {
+				alert('이름을 입력 해 주세요.')
+				return
+            }
+
+			$.Advisor.postByForm(form, {
+				url: '/api/v1/user',
+				success: function(res) {
+					alert('success add')
+				},
+				error: function(message) {
+					alert('fail add', message)
+				}
+			})
+        }
+
+        
+        function modify() {
+        	var formData = $('#userForm').serializeArray()
+        }
+
+        function cancle() {
+        	$("#userForm")[0].reset();
+        }
+        
         function del(id) {
-            debugger
+            $.Advisor.delete('/api/v1/user' + '/' + id , {
+				success: function(res) {
+					alert('success delete')
+				},
+				error: function(message) {
+					alert('fail delete', message)
+				}
+            })
         }
         
         function lock(id) {
@@ -111,7 +173,7 @@
                             {title: '등록해제', data: null, "render": function ( data, type, row, meta ) {
                                 return '<input type="button" onClick="del(\'' + row.id + '\')" value="삭제"/>'
                             }},
-                            {title: '잠김해제', data: 'enabled', "render": function ( data, type, row, meta ) {
+                            {title: '잠김해제', data: 'enable', "render": function ( data, type, row, meta ) {
                                 if(data) {
                                     return '<input type="button" onClick="unLock(\'' + row.id + '\')" value="잠김"/>';
                                 }

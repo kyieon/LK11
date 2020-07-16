@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,7 +48,29 @@ public class UserController {
 			return ResponseBuilder.<UserVO>build().setSuccess(false).setMessage(e.getMessage());
 		}
 	}
-
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseI<UserVO> postData(UserVO userVO) {
+		try {
+			log.info(">> Input Request >> @RequestBody :: " + userVO);
+			return userService.postUser(userVO);
+		} catch (Exception e) {
+			log.error("", e);
+			return ResponseBuilder.<UserVO>build().setSuccess(false).setMessage(e.getMessage());
+		}
+	}
+	
+	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+	public ResponseI<UserVO> deleteData(@PathVariable("id") String id) {
+		try {
+			log.info(">> Input Request >> param :: " + id);
+			return userService.deleteUser(id);
+		} catch (Exception e) {
+			log.error("", e);
+			return ResponseBuilder.<UserVO>build().setSuccess(false).setMessage(e.getMessage());
+		}
+	}
+	
 	@RequestMapping(path = "/export", method = RequestMethod.GET)
 	public ResponseEntity<?> export() throws Exception {
 		log.info(">> Input Request");

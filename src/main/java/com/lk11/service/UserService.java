@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lk11.common.file.FileContent;
 import com.lk11.common.response.ResponseBody;
+import com.lk11.common.response.ResponseI;
 import com.lk11.vo.UserVO;
 
 @Service
@@ -45,8 +46,24 @@ public class UserService {
 		return objectMapper.readValue(responseEntity.getBody(), new TypeReference<ResponseBody<UserVO>>() {});
 	}
 	
+	public ResponseBody<UserVO> postUser(UserVO userVO) throws JsonMappingException, JsonProcessingException {
+		userVO.setEnable(true);
+		HttpEntity<UserVO> httpEntity = new HttpEntity<UserVO>(userVO);
+		ResponseEntity<String> responseEntity = restTemplate.exchange("/users/" + userVO.getId(), HttpMethod.PUT, httpEntity, String.class);
+		log.debug(responseEntity.toString());
+		return objectMapper.readValue(responseEntity.getBody(), new TypeReference<ResponseBody<UserVO>>() {});
+	}
+	
+	public ResponseBody<UserVO> deleteUser(String id) throws JsonMappingException, JsonProcessingException {
+		ResponseEntity<String> responseEntity = restTemplate.exchange("/users/" + id, HttpMethod.DELETE, HttpEntity.EMPTY, String.class);
+		//<200,{"success":true,"message":"testid3 deleted","data":null},[Transfer-Encoding:"chunked", Content-Type:"application/json; charset=utf-8", Server:"Microsoft-HTTPAPI/2.0", Date:"Thu, 16 Jul 2020 09:09:19 GMT"]>
+		log.debug(responseEntity.toString());
+		return objectMapper.readValue(responseEntity.getBody(), new TypeReference<ResponseBody<UserVO>>() {});
+	}
+	
 	public ResponseEntity<?> export() throws Exception {
 		byte[] content = FileContent.INSTANCE.convert(getUsers().getData(), UserVO.class);
 		return fileService.downloadFile(content, "유저리스트.csv");
 	}
+
 }

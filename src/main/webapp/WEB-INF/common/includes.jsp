@@ -17,6 +17,8 @@
 
 <!--SCRIPT-->
 <script type="text/javascript" src="/resources/js/lib/jquery/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="/resources/js/lib/jquery/jquery.form.js"></script>
+
 <script type="text/javascript" src="/resources/js/lib/popper/popper.min.js"></script>
 <script type="text/javascript" src="/resources/js/lib/bootstrap/bootstrap.min.js"></script>
 
@@ -28,6 +30,8 @@
 <script type="text/javascript" src="/resources/js/lib/datatables/datatables-1.10.21.js"></script>
 <script type="text/javascript" src="/resources/js/lib/datatables/dataTables.select.min.js"></script>
 <script type="text/javascript" src="/resources/js/lib/datatables/dataTables.buttons.min.js"></script>
+
+<script type="text/javascript" src="/resources/js/lib/lodash/lodash.min.js"></script>
 
 <script type="text/javascript" src="/resources/js/lib/custom/ajax-advisor.js"></script>
 

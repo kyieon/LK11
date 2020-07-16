@@ -299,6 +299,22 @@
 				url: option.url || '',
 			});
 			ajaxForm(form, option);
-		}
+		},
+		delete: function(url, option) {
+			option = option || {};
+			$.extend(option, {
+				type: 'delete',
+				url: url || '/',
+			});
+			ajax(option);
+		},
+		put: function(url, option) {
+			option = option || {};
+			$.extend(option, {
+				type: 'put',
+				url: url || '/',
+			});
+			ajax(option);
+		},
 	}
 })

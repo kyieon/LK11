@@ -15,7 +15,7 @@ public class UserVO {
 	
 	@Column(name = "암호", index = 1)
 	@JsonAlias("UserPassword")
-	private String password;
+	private String pwd;
 	
 	@Column(name = "이름", index = 2)
 	@JsonAlias("UserName")
@@ -38,7 +38,7 @@ public class UserVO {
 	private String updateTime;
 	
 	@JsonAlias("UserEnabled")
-	private Boolean enabled;
+	private Boolean enable;
 
 	public String getId() {
 		return id;
@@ -48,12 +48,12 @@ public class UserVO {
 		this.id = id;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPwd() {
+		return pwd;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
 
 	public String getName() {
@@ -88,12 +88,12 @@ public class UserVO {
 		this.updateTime = updateTime;
 	}
 
-	public Boolean getEnabled() {
-		return enabled;
+	public Boolean getEnable() {
+		return enable;
 	}
 
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
+	public void setEnable(Boolean enable) {
+		this.enable = enable;
 	}
 
 	public String getDesc() {
@@ -106,8 +106,9 @@ public class UserVO {
 
 	@Override
 	public String toString() {
-		return "UserVO [id=" + id + ", password=" + password + ", name=" + name + ", type=" + type + ", desc=" + desc
-				+ ", createTime=" + createTime + ", updateTime=" + updateTime + ", enabled=" + enabled + "]";
+		return "UserVO [id=" + id + ", pwd=" + pwd + ", name=" + name + ", type=" + type + ", desc=" + desc
+				+ ", createTime=" + createTime + ", updateTime=" + updateTime + ", enable=" + enable + "]";
 	}
+
 
 }
