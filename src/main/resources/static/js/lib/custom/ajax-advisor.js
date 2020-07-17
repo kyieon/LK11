@@ -57,7 +57,12 @@
             success: function(res) {
             	res = convertJSONMessage(res);
             	if(!res.success) {
-					console.log(res.message || '', false);
+					var message = res.message || ''
+					console.log(message, false);
+					
+					if(option.error)
+						option.error(message)
+					
 					return;
 				}
             	
@@ -97,7 +102,12 @@
             success: function(res) {
             	res = convertJSONMessage(res);
             	if(!res.success) {
-					console.log(res.message || '', false);
+					var message = res.message || ''
+					console.log(message, false);
+					
+					if(option.error)
+						option.error(message)
+					
 					return;
 				}
             	deferred.resolve(res.data);
@@ -131,7 +141,12 @@
             success: function(res) {
             	res = convertJSONMessage(res);
             	if(!res.success) {
-					console.log(res.message || '', false);
+					var message = res.message || ''
+					console.log(message, false);
+					
+					if(option.error)
+						option.error(message)
+					
 					return;
 				}
             	result = res.data;
@@ -173,7 +188,12 @@
 			success: function(res) {
 				res = convertJSONMessage(res);
 				if(!res.success) {
-					console.log(res.message || '', false);
+					var message = res.message || ''
+					console.log(message, false);
+					
+					if(option.error)
+						option.error(message)
+					
 					return;
 				}
 				if(!option.success)
@@ -300,18 +320,18 @@
 			});
 			ajaxForm(form, option);
 		},
-		delete: function(url, option) {
-			option = option || {};
-			$.extend(option, {
-				type: 'delete',
-				url: url || '/',
-			});
-			ajax(option);
-		},
 		put: function(url, option) {
 			option = option || {};
 			$.extend(option, {
 				type: 'put',
+				url: url || '/',
+			});
+			ajax(option);
+		},
+		delete: function(url, option) {
+			option = option || {};
+			$.extend(option, {
+				type: 'delete',
 				url: url || '/',
 			});
 			ajax(option);

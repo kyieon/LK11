@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -49,11 +50,33 @@ public class UserController {
 		}
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(path = "/create", method = RequestMethod.POST)
 	public ResponseI<UserVO> postData(UserVO userVO) {
 		try {
 			log.info(">> Input Request >> @RequestBody :: " + userVO);
 			return userService.postUser(userVO);
+		} catch (Exception e) {
+			log.error("", e);
+			return ResponseBuilder.<UserVO>build().setSuccess(false).setMessage(e.getMessage());
+		}
+	}
+	
+	@RequestMapping(path = "/modify", method = RequestMethod.POST)
+	public ResponseI<UserVO> putData(UserVO userVO) {
+		try {
+			log.info(">> Input Request >> @RequestBody :: " + userVO); 
+			return userService.putUser(userVO);
+		} catch (Exception e) {
+			log.error("", e);
+			return ResponseBuilder.<UserVO>build().setSuccess(false).setMessage(e.getMessage());
+		}
+	}
+	
+	@RequestMapping(path = "/enable", method = RequestMethod.PUT)
+	public ResponseI<UserVO> enableData(@RequestBody UserVO userVO) {
+		try {
+			log.info(">> Input Request >> @RequestBody :: " + userVO); 
+			return userService.setEnableUser(userVO);
 		} catch (Exception e) {
 			log.error("", e);
 			return ResponseBuilder.<UserVO>build().setSuccess(false).setMessage(e.getMessage());

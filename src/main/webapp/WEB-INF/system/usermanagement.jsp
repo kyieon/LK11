@@ -35,7 +35,7 @@
                                                 <input name="id" class="form-control" id="inputID">
                                             </div>
                                             <div class="col-sm-2">
-                                                <button type="button" class="btn btn-primary">중복 확인</button>
+                                                <button type="button" class="btn btn-primary" id="duplicateBtn" onclick="checkDuplicate()">중복 확인</button>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -70,8 +70,9 @@
                                             </div>
                                         </div>
                                         <div class="form-group row" style="text-align: center; margin: 0 auto; display: inherit;">
-                                            <button type="button" class="btn btn-primary" onclick="add()">등록</button>
-                                            <button type="button" class="btn btn-outline-secondary" onclick="cancle()">취소</button>
+                                        
+                                            <button type="button" class="btn btn-primary" id="submitBtn" onclick="applyForm()">등록</button>
+                                            <button type="button" class="btn btn-outline-secondary" onclick="clearForm();">취소</button>
                                         </div>
                                     </form>
                                 </div>
@@ -85,83 +86,193 @@
     
     <script type="text/javascript">
 
+    	var selectionData = null
+    	var checkId = null
+    	
+    	function applyForm() {
+        	if(!selectionData) {
+            	add()
+           	} else {
+                set()
+            }
+        }
+
+        function checkDuplicate() {
+            var id = $("#userForm input[name='id']").val()
+        	$.Advisor.get('/api/v1/user/' + id, {
+				success: function(data) {
+                    checkId = false
+					alert('아이디가 중복 되었습니다.')
+				},
+				error: function(e) {
+					if(_.includes(e, 'ID Not Found')) {
+						checkId = true
+						$("#userForm input[name='id']").attr('readonly', true)
+					} else {
+						checkId = null
+						alert(e)
+					}
+				}
+            });
+        }
+        
     	function add() {
-        	var form = $('#userForm');
-    		var formData = form.serializeArray()
-        	console.log(formData)
-    		
-    		var id = (_.find(formData, (data) => data.name == 'id') || '').value
-    		if(!id) {
-				alert('아이디를 입력 해 주세요.')
-				return
-            }
-			
-    		var pwd = (_.find(formData, (data) => data.name == 'pwd') || '').value
-            if(!pwd) {
-				alert('비밀번호를 입력 해 주세요.')
-				return
-            }
-				
-            var pwd2 = (_.find(formData, (data) => data.name == 'pwd2') || '').value
-            if(!pwd2) {
-            	alert('비밀번호 확인을 입력 해 주세요.')
-				return
-            }
-                
-			if(pwd != pwd2) {
-				alert('비밀번호가 맞지 않습니다.')
-				return
-            }
+        	
+			$.Advisor.postByForm($('#userForm'), {
+				url: '/api/v1/user/create',
+				validation: function(data) {
+		        	console.log(data)
 
-			var name = (_.find(formData, (data) => data.name == 'name') || '').value
-    		if(!name) {
-				alert('이름을 입력 해 주세요.')
-				return
-            }
+		    		var id = (_.find(data, (data) => data.name == 'id') || '').value
+		    		if(!id) {
+						alert('아이디를 입력 해 주세요.')
+						return false
+		            }
 
-			$.Advisor.postByForm(form, {
-				url: '/api/v1/user',
+		            if(!checkId) {
+		            	alert('아이디 중복체크를 해 주세요.')
+						return false
+			        }
+
+		    		var pwd = (_.find(data, (data) => data.name == 'pwd') || '').value
+		            if(!pwd) {
+						alert('비밀번호를 입력 해 주세요.')
+						return false
+		            }
+						
+		            var pwd2 = (_.find(data, (data) => data.name == 'pwd2') || '').value
+		            if(!pwd2) {
+		            	alert('비밀번호 확인을 입력 해 주세요.')
+		            	return false
+		            }
+		                
+					if(pwd != pwd2) {
+						alert('비밀번호가 맞지 않습니다.')
+						return false
+		            }
+
+					var name = (_.find(data, (data) => data.name == 'name') || '').value
+		    		if(!name) {
+						alert('이름을 입력 해 주세요.')
+						return false
+		            }
+		            
+		            return true
+				},
 				success: function(res) {
-					alert('success add')
+					alert('등록 성공')
+					location.reload();
 				},
 				error: function(message) {
-					alert('fail add', message)
+					alert('등록 실패 : ' + message)
 				}
 			})
         }
 
         
-        function modify() {
-        	var formData = $('#userForm').serializeArray()
+        function set() {
+        	$.Advisor.postByForm($('#userForm'), {
+				url: '/api/v1/user/modify',
+				validation: function(data) {
+		        	console.log(data)
+
+		    		var id = (_.find(data, (data) => data.name == 'id') || '').value
+		    		if(!id) {
+						alert('아이디를 입력 해 주세요.')
+						return false
+		            }
+					
+		    		var pwd = (_.find(data, (data) => data.name == 'pwd') || '').value
+		            if(!pwd) {
+						alert('비밀번호를 입력 해 주세요.')
+						return false
+		            }
+						
+		            var pwd2 = (_.find(data, (data) => data.name == 'pwd2') || '').value
+		            if(!pwd2) {
+		            	alert('비밀번호 확인을 입력 해 주세요.')
+		            	return false
+		            }
+		                
+					if(pwd != pwd2) {
+						alert('비밀번호가 맞지 않습니다.')
+						return false
+		            }
+
+					var name = (_.find(data, (data) => data.name == 'name') || '').value
+		    		if(!name) {
+						alert('이름을 입력 해 주세요.')
+						return false
+		            }
+		            
+		            return true
+				},
+				success: function(res) {
+					alert('수정 성공')
+					location.reload();
+				},
+				error: function(message) {
+					alert('수정 실패' + message)
+				}
+			})
         }
 
-        function cancle() {
-        	$("#userForm")[0].reset();
+        function clearForm() {
+            if(!selectionData) {
+	        	checkId = null
+	        	$("#userForm")[0].reset();
+	        	$("#userForm input[name='id']").attr('readonly', false)
+            } else {
+            	$("#userForm input[name='id']").val(selectionData.id)
+            	$("#userForm input[name='pwd']").val('')
+            	$("#userForm input[name='pwd2']").val('')
+            	$("#userForm input[name='name']").val(selectionData.name)
+            	$("#userForm select[name='type']").val(selectionData.type)
+            	$("#userForm textarea[name='desc']").val(selectionData.desc)
+            }
         }
         
         function del(id) {
-            $.Advisor.delete('/api/v1/user' + '/' + id , {
+            $.Advisor.delete('/api/v1/user/' + id , {
 				success: function(res) {
-					alert('success delete')
+					alert('삭제 성공')
+					location.reload();
 				},
 				error: function(message) {
-					alert('fail delete', message)
+					alert('삭제 실패' + message)
 				}
             })
         }
         
-        function lock(id) {
-
+        function enable(id, isEnable) {
+        	$.Advisor.put('/api/v1/user/enable', {
+            	data: JSON.stringify({
+                	id: id,
+					enable: isEnable
+                }),
+				success: function(res) {
+					alert('수정 성공')
+					location.reload();
+				},
+				error: function(message) {
+					alert('수정 실패' + message)
+				}
+            })
         }
 
+        function lock(id) {
+        	enable(id, false)
+        }
+        
         function unLock(id) {
-            debugger
+        	enable(id, true)
         }
 
         $(document).ready(function() {
             var table = $('#example').DataTable({
                         "bInfo" : false
                         , "paging": false
+                        , "select": true
                         , "searching": false
                         , "ordering": false
                         , "columns" : [
@@ -175,11 +286,38 @@
                             }},
                             {title: '잠김해제', data: 'enable', "render": function ( data, type, row, meta ) {
                                 if(data) {
-                                    return '<input type="button" onClick="unLock(\'' + row.id + '\')" value="잠김"/>';
+                                    return '<input type="button" onClick="lock(\'' + row.id + '\')" value="잠김"/>';
                                 }
                                 return '<input type="button" onClick="unLock(\'' + row.id + '\')" value="해제"/>';
                             }},
                         ]
+            });
+
+            table.on('select', function ( e, dt, type, indexes ) {
+                if ( type === 'row' ) {
+                	var data = table.rows( indexes ).data()[0]
+                	selectionData = data
+                	
+                	$('#submitBtn').text('수정')
+                	
+                	$("#userForm input[name='id']").attr('readonly', true)
+                	$("#userForm #duplicateBtn").css('display', 'none')
+                	
+                	clearForm()
+                }
+            });
+
+            table.on('deselect', function ( e, dt, type, indexes ) {
+                if ( type === 'row' ) {
+                	selectionData = null
+                	
+                	$('#submitBtn').text('등록')
+
+                	$("#userForm input[name='id']").attr('readonly', false)
+                	$("#userForm #duplicateBtn").css('display', '')
+
+                	clearForm()
+                }
             });
                     
 			$.Advisor.get('/api/v1/user', {
@@ -189,7 +327,7 @@
 				},
             });
         })
-        
+       	
     </script>
 </body>
 
