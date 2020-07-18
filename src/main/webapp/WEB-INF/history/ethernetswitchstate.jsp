@@ -7,28 +7,6 @@
 <%@ include file="/WEB-INF/common/header.jsp"%>
 
 
-<style>
-.portDiv {
-	width:100px;
-	float:left;
-	text-align:center;
-}
-
-.portDivWidth {
-	width:250px;
-	float:left;
-	text-align:center;
-	margin: 0px 60px 0px 60px;
-}
-
-.portShape{
-	width:25px;
-	height:25px;
-	border-radius: 0.3rem
-}
-
-
-</style>
 
 </head>
 
@@ -48,112 +26,112 @@
                                 <h5 style="text-align: center;">백본(MAIN)</h5>
                                 <div class="mt-3">
                                 		
-                               		<div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+                               			<div class="portDiv">
+                                       	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#1 1</label></div>
                                        </div>
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#2 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-dark mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-dark mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#3 1</label></div>
                                        </div>
                                        
                                         <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#4 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#5 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#6 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#7 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#8 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#9 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#10 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#11 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#12 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#13 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#14 1</label></div>
                                        </div>
                                        
                                    	<div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#15 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#16 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#17 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#18 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#19 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#20 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#21 1</label></div>
                                        </div>
                                        
                                        <div class="portDiv">
-                                       	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+                                       	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
                                        	<div><label for="" style="">액세스#22 1</label></div>
                                        </div>
                                 </div>
@@ -174,13 +152,13 @@
 						 			<div class="portDiv">
 						 				<c:choose>
 										    <c:when test="${status.index%2 eq '0'}">
-										    	<div><button type="button" class="btn btn-outline-danger mb-1 portShape" ></button></div>
+										    	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
 										    </c:when>
 										    <c:when test="${status.index%3 eq '0'}">
-										    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+										    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 										    </c:when>
 										    <c:otherwise>
-										    	<div><button type="button" class="btn btn-outline-dark mb-1 portShape" ></button></div>
+										    	<div><button type="button" class="btn btn-dark mb-1 portShape" ></button></div>
 										    </c:otherwise>
 										</c:choose>
                                        	
@@ -200,11 +178,11 @@
                                		<div class="portDivWidth">
                                			<div class="alert alert-dark" role="alert"> SA 정보연계장치(예비) </div>
                                     	<div style="float:left;padding-left:10px;">
-	                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+	                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 	                                       	<div><label for="" style="">액세스#1 1</label></div>
                                        	</div>
                                        	<div style="float:right;padding-right:10px;">
-	                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+	                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 	                                       	<div><label for="" style="">액세스#4 1</label></div>
                                        	</div>
                                 	</div>
@@ -212,11 +190,11 @@
                                 	<div class="portDivWidth">
                                			<div class="alert alert-dark" role="alert"> SA 정보연계장치(예비) </div>
                                     	<div style="float:left;padding-left:10px;">
-	                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+	                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 	                                       	<div><label for="" style="">액세스#1 1</label></div>
                                        	</div>
                                        	<div style="float:right;padding-right:10px;">
-	                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+	                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 	                                       	<div><label for="" style="">액세스#4 1</label></div>
                                        	</div>
                                 	</div>
@@ -224,11 +202,11 @@
                                 	<div class="portDivWidth">
                                			<div class="alert alert-dark" role="alert"> SA 운영장치 </div>
                                     	<div style="float:left;padding-left:10px;">
-	                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+	                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 	                                       	<div><label for="" style="">액세스#1 1</label></div>
                                        	</div>
                                        	<div style="float:right;padding-right:10px;">
-	                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+	                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 	                                       	<div><label for="" style="">액세스#4 1</label></div>
                                        	</div>
                                 	</div>
@@ -236,11 +214,11 @@
                                 	<div class="portDivWidth">
                                			<div class="alert alert-dark" role="alert"> SA 동기화 </div>
                                     	<div style="float:left;padding-left:10px;">
-	                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+	                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 	                                       	<div><label for="" style="">액세스#1 1</label></div>
                                        	</div>
                                        	<div style="float:right;padding-right:10px;">
-	                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+	                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 	                                       	<div><label for="" style="">액세스#4 1</label></div>
                                        	</div>
                                 	</div>
@@ -258,11 +236,11 @@
 	                               		<div class="portDivWidth">
 	                               			<div class="alert alert-dark" role="alert"> IDE#01 </div>
 	                                    	<div style="float:left;padding-left:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#1 1</label></div>
 	                                       	</div>
 	                                       	<div style="float:right;padding-right:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#4 1</label></div>
 	                                       	</div>
 	                                	</div>
@@ -270,11 +248,11 @@
 	                                	<div class="portDivWidth">
 	                               			<div class="alert alert-dark" role="alert"> IDE#02 </div>
 	                                    	<div style="float:left;padding-left:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#1 1</label></div>
 	                                       	</div>
 	                                       	<div style="float:right;padding-right:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#4 1</label></div>
 	                                       	</div>
 	                                	</div>
@@ -282,11 +260,11 @@
 	                                	<div class="portDivWidth">
 	                               			<div class="alert alert-dark" role="alert"> IDE#03 </div>
 	                                    	<div style="float:left;padding-left:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#1 1</label></div>
 	                                       	</div>
 	                                       	<div style="float:right;padding-right:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#4 1</label></div>
 	                                       	</div>
 	                                	</div>
@@ -294,11 +272,11 @@
 	                                	<div class="portDivWidth">
 	                               			<div class="alert alert-dark" role="alert"> IDE#04 </div>
 	                                    	<div style="float:left;padding-left:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#1 1</label></div>
 	                                       	</div>
 	                                       	<div style="float:right;padding-right:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#4 1</label></div>
 	                                       	</div>
 	                                	</div>
@@ -312,11 +290,11 @@
 	                               		<div class="portDivWidth">
 	                               			<div class="alert alert-dark" role="alert"> IDE#05 </div>
 	                                    	<div style="float:left;padding-left:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#1 1</label></div>
 	                                       	</div>
 	                                       	<div style="float:right;padding-right:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#4 1</label></div>
 	                                       	</div>
 	                                	</div>
@@ -324,11 +302,11 @@
 	                                	<div class="portDivWidth">
 	                               			<div class="alert alert-dark" role="alert"> IDE#06 </div>
 	                                    	<div style="float:left;padding-left:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#1 1</label></div>
 	                                       	</div>
 	                                       	<div style="float:right;padding-right:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#4 1</label></div>
 	                                       	</div>
 	                                	</div>
@@ -336,11 +314,11 @@
 	                                	<div class="portDivWidth">
 	                               			<div class="alert alert-dark" role="alert"> IDE#07 </div>
 	                                    	<div style="float:left;padding-left:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#1 1</label></div>
 	                                       	</div>
 	                                       	<div style="float:right;padding-right:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#4 1</label></div>
 	                                       	</div>
 	                                	</div>
@@ -348,11 +326,11 @@
 	                                	<div class="portDivWidth">
 	                               			<div class="alert alert-dark" role="alert"> IDE#08 </div>
 	                                    	<div style="float:left;padding-left:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#1 1</label></div>
 	                                       	</div>
 	                                       	<div style="float:right;padding-right:10px;">
-		                                    	<div><button type="button" class="btn btn-outline-success mb-1 portShape" ></button></div>
+		                                    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
 		                                       	<div><label for="" style="">액세스#4 1</label></div>
 	                                       	</div>
 	                                	</div>

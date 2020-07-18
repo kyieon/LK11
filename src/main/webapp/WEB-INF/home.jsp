@@ -35,73 +35,129 @@
                                </div>
                           </div>
                       </div>
-                      
-                      <div class="card easion-card">
-                          <div class="card-body " >
-                                <h5 style="text-align: center;">이더넷 스위치 엑세스(주)</h5>
-                                
-                                <div class="mt-3">
-                                        <button type="button" class="btn btn-outline-success mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-success mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-success mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-success mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                  
-                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                    
-                                    
-                                </div>
-                          </div>
+                      <div style="overflow:auto;  height:500px;margin-bottom:10px">
+	                      <div class="card easion-card">
+	                          <div class="card-body " >
+	                                <h5 style="text-align: center;">이더넷 스위치 엑세스(주)</h5>
+	                                
+	                             <!--    <div class="mt-3">
+	                                        <button type="button" class="btn btn-outline-success mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
+	                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
+	                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
+	                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
+	                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
+	                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
+	                                        <button type="button" class="btn btn-outline-success mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
+	                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
+	                                        <button type="button" class="btn btn-outline-success mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
+	                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
+	                                        <button type="button" class="btn btn-outline-success mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
+	                  
+	                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
+	                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
+	                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
+	                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
+	                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
+	                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
+	                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
+	                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
+	                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
+	                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
+	                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
+	                                </div> -->
+	                                
+	                                <c:forEach var="list"    begin="1" end="22" step="1" varStatus="status">
+							 			<div class="portDiv" style="width:130px;">
+							 				<c:choose>
+											    <c:when test="${status.index%2 eq '0'}">
+											    	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
+											    </c:when>
+											    <c:when test="${status.index%3 eq '0'}">
+											    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
+											    </c:when>
+											    <c:otherwise>
+											    	<div><button type="button" class="btn btn-dark mb-1 portShape" ></button></div>
+											    </c:otherwise>
+											</c:choose>
+	                                       	
+	                                       	<div><label for="" style="font-size :12px">SA 정보연계장치(주) </label></div>
+	                                    </div>
+						  			</c:forEach>
+	                                
+	                                
+	                          </div>
+	                      </div>
+	            	
+	            		<div class="card easion-card">
+	                          <div class="card-body ">
+	                           <h5 style="text-align: center;">이더넷 스위치 엑세스(예)</h5>
+	                              <c:forEach var="list"    begin="1" end="22" step="1" varStatus="status">
+							 			<div class="portDiv" style="width:130px;">
+							 				<c:choose>
+											    <c:when test="${status.index%2 eq '0'}">
+											    	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
+											    </c:when>
+											    <c:when test="${status.index%3 eq '0'}">
+											    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
+											    </c:when>
+											    <c:otherwise>
+											    	<div><button type="button" class="btn btn-dark mb-1 portShape" ></button></div>
+											    </c:otherwise>
+											</c:choose>
+	                                       	
+	                                       	<div><label for="" style="font-size :12px">SA 정보연계장치(예) </label></div>
+	                                    </div>
+						  			</c:forEach>
+						  		</div>
+	                      </div>
+	                      
+	                      <div class="card easion-card">
+	                          <div class="card-body ">
+	                           <h5 style="text-align: center;">이더넷 스위치 엑세스(주)</h5>
+	                              <c:forEach var="list"    begin="1" end="22" step="1" varStatus="status">
+							 			<div class="portDiv" style="width:130px;">
+							 				<c:choose>
+											    <c:when test="${status.index%2 eq '0'}">
+											    	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
+											    </c:when>
+											    <c:when test="${status.index%3 eq '0'}">
+											    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
+											    </c:when>
+											    <c:otherwise>
+											    	<div><button type="button" class="btn btn-dark mb-1 portShape" ></button></div>
+											    </c:otherwise>
+											</c:choose>
+	                                       	
+	                                       	<div><label for="" style="font-size :12px">SA 정보연계장치(주) </label></div>
+	                                    </div>
+						  			</c:forEach>
+						  		</div>
+	                      </div>
+	                      
+	                      <div class="card easion-card">
+	                          <div class="card-body ">
+	                           <h5 style="text-align: center;">이더넷 스위치 엑세스(예)</h5>
+	                              <c:forEach var="list"    begin="1" end="22" step="1" varStatus="status">
+							 			<div class="portDiv" style="width:130px;">
+							 				<c:choose>
+											    <c:when test="${status.index%2 eq '0'}">
+											    	<div><button type="button" class="btn btn-danger mb-1 portShape" ></button></div>
+											    </c:when>
+											    <c:when test="${status.index%3 eq '0'}">
+											    	<div><button type="button" class="btn btn-success mb-1 portShape" ></button></div>
+											    </c:when>
+											    <c:otherwise>
+											    	<div><button type="button" class="btn btn-dark mb-1 portShape" ></button></div>
+											    </c:otherwise>
+											</c:choose>
+	                                       	
+	                                       	<div><label for="" style="font-size :12px">SA 정보연계장치(예) </label></div>
+	                                    </div>
+						  			</c:forEach>
+						  		</div>
+	                      </div>
+	                      
                       </div>
-            	
-            		<div class="card easion-card">
-                          <div class="card-body ">
-                           <h5 style="text-align: center;">이더넷 스위치 엑세스(예)</h5>
-                                <div class="mt-3">
-                                        <button type="button" class="btn btn-outline-success mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-success mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-success mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                                        <button type="button" class="btn btn-outline-success mb-1" style="width:120px; font-size :8px">SA 정보연계장치(주)</button>
-                  
-                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-danger mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                        <button type="button" class="btn btn-outline-dark mb-1" style="width:120px; font-size :8px">SA 정보연계장치(예)</button>
-                                    
-                                </div>
-                          </div>
-                      </div>
-                      
                       <!-- 테이블  -->
                        <div class="row">
                         <div class="col-lg-6">
