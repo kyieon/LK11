@@ -1,7 +1,7 @@
 /*!
  * easion - Bootstrap dashboard template based on Bootstrap 4
  * Version v1.0.1
- * Copyright 2016 - 2020 Mudimedia Software
+ * Copyright 2016 - 2020 Mudimedia Softwaredash-content
  * https://mudimedia.com
  * 
  * Parts of this code were created by the Bootstrap team
@@ -1219,7 +1219,7 @@ pre {
   .offset-md-11 {
     margin-left: 91.66667%; } }
 
-@media (min-width: 992px) {
+
   .col-lg {
     -webkit-flex-basis: 0;
         -ms-flex-preferred-size: 0;
@@ -1443,7 +1443,7 @@ pre {
   .offset-lg-10 {
     margin-left: 83.33333%; }
   .offset-lg-11 {
-    margin-left: 91.66667%; } }
+    margin-left: 91.66667%; } 
 
 @media (min-width: 1200px) {
   .col-xl {
@@ -8970,7 +8970,7 @@ body {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
+  display: flex; 
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -8980,8 +8980,10 @@ body {
   -webkit-flex-grow: 2;
       -ms-flex-positive: 2;
           flex-grow: 2;
-  margin-top: 84px; 
-  margin-left: 238px;
+
+
+/*   position : sticky; */
+ /*  width:1680px; */
 }
 
 .dash-content {
@@ -8989,7 +8991,8 @@ body {
   -webkit-flex-grow: 2;
       -ms-flex-positive: 2;
           flex-grow: 2;
-  padding: 25px; }
+  padding: 25px; 
+}
 
 .dash-row {
   margin-bottom: 30px; }
@@ -9047,7 +9050,7 @@ body {
 
 .dash-nav {
   min-width: 238px;
-  position: fixed;
+/*   position: fixed; */
   left: 0;
   top: 0;
   bottom: 0;
@@ -9312,7 +9315,6 @@ body {
       -ms-flex-align: center;
           align-items: center;
   padding: 8px 27px;
-  position: fixed;
   top: 0;
   right: 0;
   left: 238px;
