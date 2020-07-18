@@ -456,22 +456,11 @@ pre {
 
 .container {
   width: 100%;
+  max-width: 1140px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto; }
-  @media (min-width: 576px) {
-    .container {
-      max-width: 540px; } }
-  @media (min-width: 768px) {
-    .container {
-      max-width: 720px; } }
-  @media (min-width: 992px) {
-    .container {
-      max-width: 960px; } }
-  @media (min-width: 1200px) {
-    .container {
-      max-width: 1140px; } }
 
 .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
   width: 100%;
@@ -479,22 +468,6 @@ pre {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto; }
-
-@media (min-width: 576px) {
-  .container, .container-sm {
-    max-width: 540px; } }
-
-@media (min-width: 768px) {
-  .container, .container-sm, .container-md {
-    max-width: 720px; } }
-
-@media (min-width: 992px) {
-  .container, .container-sm, .container-md, .container-lg {
-    max-width: 960px; } }
-
-@media (min-width: 1200px) {
-  .container, .container-sm, .container-md, .container-lg, .container-xl {
-    max-width: 1140px; } }
 
 .row {
   display: -webkit-box;
@@ -8920,9 +8893,6 @@ a.text-dark:hover, a.text-dark:focus {
     padding: 8px 32px; }
   .easion-card .card-body {
     padding: 24px 32px; }
-    @media (max-width: 767.98px) {
-      .easion-card .card-body {
-        padding: 12px 18px; } }
 
 .easion-card-icon {
   margin-right: 20px; }
@@ -8963,9 +8933,6 @@ a.text-dark:hover, a.text-dark:focus {
 .easion-card-body-chart {
   position: relative;
   max-width: 99%; }
-  @media (max-width: 767.98px) {
-    .easion-card-body-chart {
-      padding: 12px 5px; } }
 
 h1 {
   font-family: "Nunito", sans-serif;
@@ -8995,7 +8962,9 @@ body {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  min-height: 100vh; }
+  width: 1920px;  
+  min-height: 100vh;
+}
 
 .dash-app {
   display: -webkit-box;
@@ -9011,12 +8980,9 @@ body {
   -webkit-flex-grow: 2;
       -ms-flex-positive: 2;
           flex-grow: 2;
-  margin-top: 84px; }
-  @media (min-width: 992px) {
-    .dash-app {
-      margin-left: 238px; }
-      .dash-compact .dash-app {
-        margin-left: 0; } }
+  margin-top: 84px; 
+  margin-left: 238px;
+}
 
 .dash-content {
   -webkit-box-flex: 2;
@@ -9024,9 +8990,6 @@ body {
       -ms-flex-positive: 2;
           flex-grow: 2;
   padding: 25px; }
-  @media (max-width: 767.98px) {
-    .dash-content {
-      padding: 15px 0px; } }
 
 .dash-row {
   margin-bottom: 30px; }
@@ -9094,17 +9057,6 @@ body {
   .dash-nav::-webkit-scrollbar {
     width: 0;
     background: transparent; }
-  @media (max-width: 991.98px) {
-    .dash-nav {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      z-index: 1070; }
-      .dash-nav.mobile-show {
-        display: block; } }
   .dash-nav header {
     min-height: 84px;
     padding: 8px 27px;
@@ -9259,9 +9211,6 @@ body {
 
 .notifications {
   margin: -8px -32px; }
-  @media (max-width: 767.98px) {
-    .notifications {
-      margin: -8px -18px; } }
 
 .notification {
   display: -webkit-box;
@@ -9366,13 +9315,8 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  left: 0;
+  left: 238px;
   z-index: 1000; }
-  @media (min-width: 992px) {
-    .dash-toolbar {
-      left: 238px; }
-      .dash-compact .dash-toolbar {
-        left: 0; } }
 
 .searchbox {
   display: -webkit-box;
@@ -9387,22 +9331,6 @@ body {
   -webkit-flex-grow: 2;
       -ms-flex-positive: 2;
           flex-grow: 2; }
-  @media (max-width: 767.98px) {
-    .searchbox {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      background: #F3F3F3;
-      min-height: 84px;
-      z-index: 1071;
-      padding: 8px 27px; }
-      .searchbox.show {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex; } }
 
 .searchbox-toggle {
   display: none;
@@ -9410,12 +9338,6 @@ body {
   .searchbox-toggle:hover, .searchbox-toggle:active, .searchbox-toggle:focus {
     text-decoration: none;
     color: #515151; }
-  @media (max-width: 767.98px) {
-    .searchbox-toggle {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex; } }
 
 .searchbox-input {
   border: none;
@@ -9444,12 +9366,6 @@ body {
   border: none;
   background: none;
   padding: 0; }
-  @media (max-width: 767.98px) {
-    .searchbox-submit {
-      -webkit-box-ordinal-group: 10;
-      -webkit-order: 9;
-          -ms-flex-order: 9;
-              order: 9; } }
   .searchbox-submit:focus {
     outline: none; }
   .searchbox-submit:hover {
