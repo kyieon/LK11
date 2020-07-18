@@ -31,14 +31,9 @@
 	
 		$(document).ready(function() {
 
-			var dataSet = [
-				["1" , "\\Device\\NPF\\Network_down" , "10.1.1.1", '' ],
-				["2" , "\\Device\\NPF\\Network_down" , "10.1.1.2", '' ],
-			];
 
 			var table =	$('#example').DataTable({
-				"data" : dataSet
-				, "bInfo" : false
+				 "bInfo" : false
 				, "paging": false
 			    , "ordering": false
 			    , "dom" : 'Bfrtip'
@@ -59,10 +54,10 @@
 					
 		        ]
 				, "columns" : [
-					{title: 'NO'},
-					{title: '이름'},
-					{title: 'IP 주소'},
-					{title: '설명'},
+					/* {title: 'ID' , data: 'nicId'}, */
+					{title: '이름'  , data: 'nicName'},
+					{title: 'IP 주소' , data: 'nicIp'},
+					{title: '설명' , data: 'nicDesc'}
 				]
 				 
 			});
@@ -90,6 +85,15 @@
 
 			//테이블 serch 박스 숨김
 			$("#example_filter").hide();
+
+
+
+			$.Advisor.get('/api/v1/system/networkcardnicList', {
+				success: function(dataSet) {
+                    table.clear();
+                    table.rows.add( dataSet ).draw();
+				}
+            });
 		});
 	</script>
 </body>
