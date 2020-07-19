@@ -8962,7 +8962,7 @@ body {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 1920px;  
+  min-width: 1900px;  
   min-height: 100vh;
 }
 
