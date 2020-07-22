@@ -18,7 +18,7 @@ public class MultiValueMapConverter {
             MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.setSerializationInclusion(Include.NON_NULL);
-			Map<String, String> map = objectMapper .convertValue(body, new TypeReference<Map<String, String>>() {});
+			Map<String, String> map = objectMapper.convertValue(body, new TypeReference<Map<String, String>>() {});
             params.setAll(map);
             return params;
         } catch (Exception e) {
