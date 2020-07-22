@@ -59,17 +59,14 @@
             	if(!res.success) {
 					var message = res.message || ''
 					console.log(message, false);
-					
-					if(option.error)
-						option.error(message)
-					
-					return;
+					if(option.fail) {
+						option.fail(res.data, message)
+					}
+				} else {
+	            	if(option.success) {
+						option.success(res.data);
+	            	}
 				}
-            	
-            	if(!option.success)
-					return;
-				
-				option.success(res.data);
             },
             error: function(req, status, message) {
             	var resText = req.responseText || '';
@@ -104,13 +101,8 @@
             	if(!res.success) {
 					var message = res.message || ''
 					console.log(message, false);
-					
-					if(option.error)
-						option.error(message)
-					
-					return;
 				}
-            	deferred.resolve(res.data);
+            	deferred.resolve(res);
             },
             error: function(req, status, message) {
             	var resText = req.responseText || '';
@@ -141,15 +133,10 @@
             success: function(res) {
             	res = convertJSONMessage(res);
             	if(!res.success) {
-					var message = res.message || ''
+					var message = res.message || '';
 					console.log(message, false);
-					
-					if(option.error)
-						option.error(message)
-					
-					return;
 				}
-            	result = res.data;
+            	result = res;
             },
             error: function(req, status, message) {
             	var resText = req.responseText || '';
@@ -191,8 +178,8 @@
 					var message = res.message || ''
 					console.log(message, false);
 					
-					if(option.error)
-						option.error(message)
+					if(option.fail)
+						option.fail(message)
 					
 					return;
 				}
@@ -201,7 +188,7 @@
 				
 				option.success(res.data);
 			},
-			 error: function(req, status, message) {
+			error: function(req, status, message) {
 				 var resText = req.responseText || '';
 				if(!option.error) {
 					console.log(status + '[' + req.status + ']' + ':' + getErrorMessage(resText), false);
@@ -215,47 +202,7 @@
 		});
 	}
 	
-
-	function ajaxBinary(option) {
-		$.ajax({
-			url: ( option.url || '' ).replace('//', '/'),
-			dataType: 'native',
-			data: option.data,
-            xhrFields: {
-                responseType: 'blob'
-            },
-            beforeSend: function() {
-            	isProcess = true;
-            },
-            success: function(blob) {
-            	if(!option.success)
-					return;
-				
-				option.success(res.data);
-            },
-            error: function(req, status, message) {
-            	var resText = req.responseText || '';
-            	if(!option.error) {
-					console.log(status + '[' + req.status + ']' + ':' + getErrorMessage(resText), false);
-					return;
-				}
-            	option.error(getErrorMessage(resText));
-            },
-            complete: function(xhr, status) {
-                isProcess = false;
-            }
-        });
-	}
-	
 	return {
-		getBinary: function(url, option) {
-			option = option || {};
-			$.extend(option, {
-				type: 'get',
-				url: url || '/'
-			});
-			ajaxBinary(option);
-		},
 		get: function(url, option) {
 			option = option || {};
 			$.extend(option, {
@@ -280,6 +227,14 @@
 			});
 			return ajaxPromise(option);
 		},
+		getByForm: function(form, option) {
+			option = option || {};
+			$.extend(option, {
+				type: 'get',
+				url: option.url || '',
+			});
+			ajaxForm(option);
+		},
 		post: function(url, option) {
 			option = option || {};
 			$.extend(option, {
@@ -303,14 +258,6 @@
 				url: url || '/'
 			});
 			return ajaxPromise(option);
-		},
-		getByForm: function(form, option) {
-			option = option || {};
-			$.extend(option, {
-				type: 'get',
-				url: option.url || '',
-			});
-			ajaxForm(option);
 		},
 		postByForm: function(form, option) {
 			option = option || {};

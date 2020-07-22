@@ -58,6 +58,14 @@ public class UserService {
 		});
 	}
 
+	public ResponseBody<?> existUser(String id) throws JsonMappingException, JsonProcessingException {
+		ResponseEntity<String> responseEntity = restTemplate.exchange("/users/exist?id=" + id, HttpMethod.GET, HttpEntity.EMPTY,
+				String.class);
+		log.debug(responseEntity.toString());
+		return objectMapper.readValue(responseEntity.getBody(), new TypeReference<ResponseBody<?>>() {
+		});
+	}
+	
 	public ResponseBody<UserVO> postUser(UserVO userVO) throws JsonMappingException, JsonProcessingException {
 		MultiValueMap<String, String> headers = new HttpHeaders();
 		headers.put(HttpHeaders.CONTENT_TYPE, Collections.singletonList(MediaType.APPLICATION_FORM_URLENCODED_VALUE));
@@ -101,5 +109,4 @@ public class UserService {
 		byte[] content = FileContent.INSTANCE.convert(getUsers().getData(), UserVO.class);
 		return fileService.downloadFile(content, "유저리스트.csv");
 	}
-
 }

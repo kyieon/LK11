@@ -99,19 +99,18 @@
 
         function checkDuplicate() {
             var id = $("#userForm input[name='id']").val()
-        	$.Advisor.get('/api/v1/user/' + id, {
-				success: function(data) {
+        	$.Advisor.get('/api/v1/user/exist/' + id, {
+        		success: function(data) {
                     checkId = false
 					alert('아이디가 중복 되었습니다.')
 				},
+				fail: function(data) {
+					checkId = true
+					$("#userForm input[name='id']").attr('readonly', true)
+				},
 				error: function(e) {
-					if(_.includes(e, 'ID Not Found')) {
-						checkId = true
-						$("#userForm input[name='id']").attr('readonly', true)
-					} else {
-						checkId = null
-						alert(e)
-					}
+					checkId = null
+					alert(e)
 				}
             });
         }

@@ -50,6 +50,17 @@ public class UserController {
 		}
 	}
 	
+	@RequestMapping(path = "/exist/{id}", method = RequestMethod.GET)
+	public ResponseI<?> existData(@PathVariable("id") String id) {
+		try {
+			log.info(">> Input Request >> param :: " + id);
+			return userService.existUser(id);
+		} catch (Exception e) {
+			log.error("", e);
+			return ResponseBuilder.<UserVO>build().setSuccess(false).setMessage(e.getMessage());
+		}
+	}
+	
 	@RequestMapping(path = "/create", method = RequestMethod.POST)
 	public ResponseI<UserVO> postData(UserVO userVO) {
 		try {
