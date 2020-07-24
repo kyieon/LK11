@@ -19,9 +19,9 @@ import com.lk11.common.response.ResponseBody;
 import com.lk11.vo.NetworkCardNicVO;
 
 @Service
-public class SystemService {
+public class NetworkCardNicService {
 
-	private static final Logger log = LoggerFactory.getLogger(SystemService.class);
+	private static final Logger log = LoggerFactory.getLogger(NetworkCardNicService.class);
 
 	@Autowired
 	private RestTemplate restTemplate;
@@ -29,16 +29,11 @@ public class SystemService {
 	@Autowired
 	private ObjectMapper objectMapper;
 
-
-
-	public ResponseBody<List<NetworkCardNicVO>> getNetworkCardNicList() throws JsonMappingException, JsonProcessingException {
+	public ResponseBody<List<NetworkCardNicVO>> getNetworkCardNics() throws JsonMappingException, JsonProcessingException {
 		ResponseEntity<String> responseEntity = restTemplate.exchange("/nics", HttpMethod.GET, HttpEntity.EMPTY,
 				String.class);
 		log.debug(responseEntity.toString());
 		return objectMapper.readValue(responseEntity.getBody(), new TypeReference<ResponseBody<List<NetworkCardNicVO>>>() {
 		});
 	}
-
-	
-
 }

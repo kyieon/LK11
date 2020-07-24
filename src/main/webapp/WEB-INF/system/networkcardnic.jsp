@@ -16,10 +16,8 @@
         	<%@ include file="/WEB-INF/common/toolbar.jsp" %>
             <main class="dash-content">
             	<div class="container-fluid">
-            		 <h1 class="dash-title">시스템 장치</h1>
-            		
+            		 <h1 class="dash-title">네트워크 카드(NIC)</h1>
             		 <table id="example" class="display" style="width: 100%"></table>
-            		
                 </div>
             </main>
         </div>
@@ -28,10 +26,18 @@
 	</div>
     
 	<script type="text/javascript">
-	
+
 		$(document).ready(function() {
 
-
+			function refresh() {
+				$.Advisor.get('/api/v1/networkcardnic', {
+					success: function(dataSet) {
+	                    table.clear();
+	                    table.rows.add( dataSet ).draw();
+					}
+	            });
+			}
+			
 			var table =	$('#example').DataTable({
 				 "bInfo" : false
 				, "paging": false
@@ -42,7 +48,7 @@
 		            {
 		                text: '갱신',
 		                action: function () {
-							
+							refresh()
 		                }
 					},
 					{
@@ -54,7 +60,6 @@
 					
 		        ]
 				, "columns" : [
-					/* {title: 'ID' , data: 'nicId'}, */
 					{title: '이름'  , data: 'nicName'},
 					{title: 'IP 주소' , data: 'nicIp'},
 					{title: '설명' , data: 'nicDesc'}
@@ -64,7 +69,7 @@
 			$('#example thead tr').clone(true).appendTo( '#example thead' );
 			$('#example thead tr:eq(1) th').each( function (i) {
 
-				if(i == "0" || i == '3'){ 
+				if(i == '2'){ 
 					$(this).html(''); 
 					return true;
 				} else {
@@ -88,7 +93,7 @@
 
 
 
-			$.Advisor.get('/api/v1/system/networkcardnicList', {
+			$.Advisor.get('/api/v1/networkcardnic', {
 				success: function(dataSet) {
                     table.clear();
                     table.rows.add( dataSet ).draw();

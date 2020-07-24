@@ -11,28 +11,27 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lk11.common.response.ResponseBuilder;
 import com.lk11.common.response.ResponseI;
-import com.lk11.service.SystemService;
+import com.lk11.service.NetworkCardNicService;
 import com.lk11.vo.NetworkCardNicVO;
 
 @RestController
-@RequestMapping("/api/v1/system")
-public class SystemController {
+@RequestMapping("/api/v1/networkcardnic")
+public class NetworkCardNicController {
 
-	private static final Logger log = LoggerFactory.getLogger(SystemController.class);
+	private static final Logger log = LoggerFactory.getLogger(NetworkCardNicController.class);
 
 	@Autowired
-	private SystemService systemService;
+	private NetworkCardNicService systemService;
 
 
-	@RequestMapping(path = "/networkcardnicList", method = RequestMethod.GET)
-	public ResponseI<List<NetworkCardNicVO>> getNetworkCardNicData() {
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseI<List<NetworkCardNicVO>> getDatas() {
 		try {
 			log.info("INPUT NETWORK CARD NIC");
-			return systemService.getNetworkCardNicList();
+			return systemService.getNetworkCardNics();
 		} catch (Exception e) {
 			log.error("", e);
 			return ResponseBuilder.<List<NetworkCardNicVO>>build().setSuccess(false).setMessage(e.getMessage());
 		}
 	}
-
 }
