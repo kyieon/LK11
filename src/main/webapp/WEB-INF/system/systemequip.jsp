@@ -30,49 +30,53 @@
 				<h4 class="modal-title">생성</h4>
 			</div>
 			<div class="modal-body">
+			
+				<select class="form-control" id="inputType">
+					<option value="devOper">상위운영장치</option>
+					<option value="devSwitch">이더넷 스위치</option>
+					<option value="devSNTP">SNTP</option>
+					<option value="devIED">IED</option>
+				</select>
+				
 				<form id="createForm">
-					<select name="type" class="form-control" id="inputType">
-						<option value="devOper">상위운영장치</option>
-						<option value="devSwitch">이더넷 스위치</option>
-						<option value="devSNTP">SNTP</option>
-						<option value="devIED">IED</option>
-					</select>
+					
+					<input name="type" type="hidden" value="devOper">
 					
 					<div style="margin-top: 40px;">
 						<div class="form-group row">
 							<label for="inputName" class="col-sm-2 col-form-label">이름</label>
 							<div class="col-sm-10">
-								<input name="name" class="form-control" id="inputName">
+								<input name="name" class="form-control">
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="inputIP" class="col-sm-2 col-form-label">IP</label>
 							<div class="col-sm-10">
-								<input name="ip" class="form-control" id="inputIP">
+								<input name="ip" class="form-control">
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="inputDesc" class="col-sm-2 col-form-label">포트 개수</label>
 							<div class="col-sm-10">
-								<input name="ports" type="number" class="form-control" id="inputPorts">
+								<input name="ports" type="number" value="1" min="1" class="form-control">
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="inputDesc" class="col-sm-2 col-form-label">설명</label>
 							<div class="col-sm-10">
-								<textarea name="desc" class="form-control" id="inputDesc" rows="3"></textarea>
+								<textarea name="desc" class="form-control" rows="3"></textarea>
 							</div>
 						</div>
 						<div class="form-group row" style="display: none">
 							<label for="inputSCL" class="col-sm-2 col-form-label">SCL</label>
 							<div class="col-sm-10">
-								<input name="sclFile" type="file" class="form-control" id="inputSCL">
+								<input name="sclFile" type="file" class="form-control" disabled>
 							</div>
 						</div>
 						<div class="form-group row" style="display: none">
 							<label for="inputIET" class="col-sm-2 col-form-label">IET</label>
 							<div class="col-sm-10">
-								<input name="ietFile" type="file" class="form-control" id="inputIET">
+								<input name="ietFile" type="file" class="form-control" disabled>
 							</div>
 						</div>
 					</div>
@@ -89,35 +93,41 @@
 				<h4 class="modal-title">수정</h4>
 			</div>
 			<div class="modal-body">
-				<form>
+				<form id="modifyForm">
 					<div class="form-group row">
 						<label for="inputName" class="col-sm-2 col-form-label">이름</label>
 						<div class="col-sm-10">
-							<input type="name" class="form-control" id="inputName">
+							<input name="name" class="form-control">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="inputIP" class="col-sm-2 col-form-label">IP</label>
 						<div class="col-sm-10">
-							<input type="name" class="form-control" id="inputIP">
+							<input name="ip" class="form-control">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inputDesc" class="col-sm-2 col-form-label">포트 개수</label>
+						<div class="col-sm-10">
+							<input name="ports" type="number" value="1" min="1" class="form-control">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="inputDesc" class="col-sm-2 col-form-label">설명</label>
 						<div class="col-sm-10">
-							<textarea class="form-control" id="inputDesc" rows="3"></textarea>
+							<textarea name="desc" class="form-control" rows="3"></textarea>
 						</div>
 					</div>
 					<div class="form-group row" style="display: none">
 						<label for="inputSCL" class="col-sm-2 col-form-label">SCL</label>
 						<div class="col-sm-10">
-							<input type="file" class="form-control" id="inputSCL">
+							<input name="sclFile" type="file" class="form-control" disabled>
 						</div>
 					</div>
 					<div class="form-group row" style="display: none">
 						<label for="inputIET" class="col-sm-2 col-form-label">IET</label>
 						<div class="col-sm-10">
-							<input type="file" class="form-control" id="inputIET">
+							<input name="ietFile" type="file" class="form-control" disabled>
 						</div>
 					</div>
 				</form>
@@ -145,11 +155,61 @@
     
 	<script type="text/javascript">
 	
+		function convertDevName(type) {
+			return (_.find([
+				{type: 'devOper', name: '상위운영장치'},
+				{type: 'devSwitch', name: '이더넷 스위치'},
+				{type: 'devSNTP', name: 'SNTP'},
+				{type: 'devIED', name: 'IED'}
+			], (data) => data.type == type) || '').name
+		}
+	
 		function add() {
-			$.Advisor.postByForm($('#createForm'), {
-				url: '/api/v1/device/create',
+			var $form = $('#createForm');
+			var type = (_.find($form.serializeArray(), (data) => data.name == 'type') || '').value
+			
+			$.Advisor.postByForm($form, {
+				url: '/api/v1/device/create/' + type,
 				validation: function(data) {
 		        	console.log(data)
+
+		        	var name = (_.find(data, (data) => data.name == 'name') || '').value
+		    		if(!name) {
+						alert('이름을 입력 해 주세요.')
+						return false
+		            }
+					
+		    		var ip = (_.find(data, (data) => data.name == 'ip') || '').value
+		            if(!ip) {
+						alert('IP를 입력 해 주세요.')
+						return false
+		            }
+		    		var ports = (_.find(data, (data) => data.name == 'ports') || '').value
+		            if(!ports) {
+						alert('포트 개수를 입력 해 주세요.')
+						return false
+		            }
+
+		    		var desc = (_.find(data, (data) => data.name == 'desc') || '').value
+		            if(!desc) {
+						alert('설명을 입력 해 주세요.')
+						return false
+		            }
+
+		        	var type = (_.find(data, (data) => data.name == 'type') || '').value
+		    		if(type == 'devIED') {
+		    			var sclFile = (_.find(data, (data) => data.name == 'sclFile') || '').value
+			    		if(!sclFile) {
+							alert('SCL 파일을 선택 해 주세요.')
+							return false
+			            }
+						
+		    			var ietFile = (_.find(data, (data) => data.name == 'ietFile') || '').value
+			    		if(!ietFile) {
+							alert('IET 파일을 선택 해 주세요.')
+							return false
+			            }
+				    }
 		        	
 		            return true
 				},
@@ -196,9 +256,13 @@
 			$('#inputType').change(function() {
 				if($(this).val() != 'devIED') {
 					$(this).parent().find('div.form-group:gt(3)').css('display', 'none')
+					$(this).parent().find('div.form-group:gt(3)').find('input[type="file"]').attr('disabled', true)
 				} else {
 					$(this).parent().find('div.form-group:gt(3)').css('display', '')
+					$(this).parent().find('div.form-group:gt(3)').find('input[type="file"]').attr('disabled', false)
 				}
+				$("#createForm")[0].reset();
+				$('#createForm input[name="type"]').val($(this).val());
 				return false;
 			});
 
@@ -222,17 +286,13 @@
 								alert("장치를 선택해 주세요.");
 								return;
 							}
-							console.log(data[0]);
-							console.log(data[1]);
-							console.log(data[2]);
-							console.log(data[3]);
-							
-							var type = data[1];
-							if(type != 'IED') {
-								$('#modifyDialog .modal-body').find('form > div:gt(2)').css('display', 'none')
+							var type = data.type;
+							if(type != 'devIED') {
+								$('#modifyDialog .modal-body').find('form > div:gt(3)').css('display', 'none')
 							} else {
-								$('#modifyDialog .modal-body').find('form > div:gt(2)').css('display', '')
+								$('#modifyDialog .modal-body').find('form > div:gt(3)').css('display', '')
 							}
+							$("#modifyForm")[0].reset();
 		                	$("#modifyDialog").modal();
 		                }
 					},
@@ -258,7 +318,9 @@
 					
 				, "columns" : [
 					{title: 'NO', data: 'idx'},
-					{title: '장치종류', data: 'type'},
+					{title: '장치종류', data: 'type', render: function(data, type, row, meta ) {
+						return convertDevName(data);
+					}},
 					{title: '장치이름', data: 'name'},
 					{title: 'IP 주소', data: 'ip'},
 					{title: '포트 개수', data: 'ports'},
@@ -276,13 +338,13 @@
 					$(this).html(''); 
 					return true;
 				} else if(i == "1"){
-						var st = '<select> <option value="">전체</option></select>';
-						$(this).html( st );
-						$( 'select', this ).on( 'change', function () {
-								if ( table.column(i).search() !== this.value ) {
-									table.column(i).search( this.value ).draw();
-								}
-						} );
+					var st = '<select>  <option value="">전체</option><option value="devOper">상위운영장치</option><option value="devSwitch">이더넷 스위치</option><option value="devSNTP">SNTP</option><option value="devIED">IED</option> </select>';
+					$(this).html( st );
+					$( 'select', this ).on( 'change', function () {
+							if ( table.column(i).search() !== this.value ) {
+								table.column(i).search( convertDevName(this.value) ).draw();
+							}
+					} );
 				} else {
 					var title = $(this).text();
 					$(this).html( '<input type="text"  placeholder="Search '+title+'" />' );

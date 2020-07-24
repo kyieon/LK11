@@ -1,7 +1,8 @@
 package com.lk11.common.enums;
 
 public enum EncProtocol {
-	None(""),
+	Unknown(""),
+	None("eptNone"),
 	DES("eptDES"),
 	;
 	
@@ -20,7 +21,7 @@ public enum EncProtocol {
 			if(encProtocol.getValue().equalsIgnoreCase(value))
 				return encProtocol;
 		}
-		return None;
+		return Unknown;
 	}
 }
 

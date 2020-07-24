@@ -1,7 +1,8 @@
 package com.lk11.common.enums;
 
 public enum AuthProtocol {
-	None(""),
+	Unknown(""),
+	None("aptNone"),
 	MD5("aptMD5"),
 	SHA("aptSHA"),
 	;
@@ -21,6 +22,6 @@ public enum AuthProtocol {
 			if(authProtocol.getValue().equalsIgnoreCase(value))
 				return authProtocol;
 		}
-		return None;
+		return Unknown;
 	}
 }

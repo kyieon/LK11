@@ -5,11 +5,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,9 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lk11.common.response.ResponseBuilder;
 import com.lk11.common.response.ResponseI;
 import com.lk11.service.SystemEquipService;
-import com.lk11.service.UserService;
+import com.lk11.vo.DevIEDVO;
+import com.lk11.vo.DevSNTPVO;
+import com.lk11.vo.DevSwitchVO;
 import com.lk11.vo.DeviceVO;
-import com.lk11.vo.UserVO;
 
 @RestController
 @RequestMapping("/api/v1/device")
@@ -42,11 +38,44 @@ public class SystemEquipController {
 		}
 	}
 
-	@RequestMapping(path = "/create", method = RequestMethod.POST)
-	public ResponseI<DeviceVO> postData(DeviceVO deviceVO) {
+	@RequestMapping(path = "/create/devOper", method = RequestMethod.POST)
+	public ResponseI<DeviceVO> postDataDevOper(DeviceVO deviceVO) {
 		try {
 			log.info(">> Input Request >> DeviceVO :: " + deviceVO);
 			return systemEquipService.postDevice(deviceVO);
+		} catch (Exception e) {
+			log.error("", e);
+			return ResponseBuilder.<DeviceVO>build().setSuccess(false).setMessage(e.getMessage());
+		}
+	}
+
+	@RequestMapping(path = "/create/devSwitch", method = RequestMethod.POST)
+	public ResponseI<DeviceVO> postDataDevSwitch(DevSwitchVO devSwitchVO) {
+		try {
+			log.info(">> Input Request >> DevSwitchVO :: " + devSwitchVO);
+			return systemEquipService.postDevice(devSwitchVO);
+		} catch (Exception e) {
+			log.error("", e);
+			return ResponseBuilder.<DeviceVO>build().setSuccess(false).setMessage(e.getMessage());
+		}
+	}
+
+	@RequestMapping(path = "/create/devSNTP", method = RequestMethod.POST)
+	public ResponseI<DeviceVO> postDataDevSNTP(DevSNTPVO devSNTPVO) {
+		try {
+			log.info(">> Input Request >> DevSNTPVO :: " + devSNTPVO);
+			return systemEquipService.postDevice(devSNTPVO);
+		} catch (Exception e) {
+			log.error("", e);
+			return ResponseBuilder.<DeviceVO>build().setSuccess(false).setMessage(e.getMessage());
+		}
+	}
+	
+	@RequestMapping(path = "/create/devIED", method = RequestMethod.POST)
+	public ResponseI<DeviceVO> postDataDevIED(DevIEDVO devIEDVO) {
+		try {
+			log.info(">> Input Request >> DevIEDVO :: " + devIEDVO);
+			return systemEquipService.postDevice(devIEDVO);
 		} catch (Exception e) {
 			log.error("", e);
 			return ResponseBuilder.<DeviceVO>build().setSuccess(false).setMessage(e.getMessage());

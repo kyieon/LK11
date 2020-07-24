@@ -1,9 +1,6 @@
 package com.lk11.vo;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import com.fasterxml.jackson.annotation.JsonAlias;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -38,13 +35,6 @@ public class DeviceVO {
 	
 	@JsonAlias("DevUpdatetime")
 	private String updateTime;
-	
-	@JsonIgnore
-	private MultipartFile sclFile;
-	
-	@JsonIgnore
-	private MultipartFile ietFile;
-
 	
 	public int getIdx() {
 		return idx;
@@ -126,22 +116,6 @@ public class DeviceVO {
 		this.updateTime = updateTime;
 	}
 	
-	public void setSclFile(MultipartFile sclFile) {
-		this.sclFile = sclFile;
-	}
-	
-	public MultipartFile getSclFile() {
-		return sclFile;
-	}
-	
-	public void setIetFile(MultipartFile ietFile) {
-		this.ietFile = ietFile;
-	}
-	
-	public MultipartFile getIetFile() {
-		return ietFile;
-	}
-
 	@Override
 	public String toString() {
 		return "DeviceVO [idx=" + idx + ", type=" + type + ", name=" + name + ", desc=" + desc + ", ip=" + ip
