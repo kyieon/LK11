@@ -9,7 +9,7 @@ spring:  profiles:    active:    - dev
   resources:
     chain:
       compressed: true
-      cache: true      server:  port: ${port:8000}  servlet:    session:      cookie:        name: SESSION_ID    encoding:      charset: UTF-8  compression:    enabled: true  error:    whitelabel:      enabled: false      logging:  config: classpath:logback-spring.xml      --- #dev
+      cache: true      server:  port: ${port:8000}  servlet:    session:      timeout: -1      cookie:        name: SESSION_ID        max-age: -1    encoding:      charset: UTF-8  compression:    enabled: true  error:    whitelabel:      enabled: false      logging:  config: classpath:logback-spring.xml      --- #dev
 
 spring:
   profiles: dev
