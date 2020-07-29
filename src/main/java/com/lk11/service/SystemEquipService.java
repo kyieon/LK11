@@ -54,24 +54,46 @@ public class SystemEquipService {
 		return objectMapper.readValue(responseEntity.getBody(), new TypeReference<ResponseBody<List<DeviceVO>>>() {
 		});
 	}
-
-	public ResponseBody<DeviceVO> postDevice(DeviceVO deviceVO) throws Exception {
+	
+	public ResponseBody<DeviceVO> getDevice(String devType, String ip) throws Exception {
+		ResponseEntity<String> responseEntity = restTemplate.exchange("/devs/{devType}?ip={ip}", HttpMethod.GET, HttpEntity.EMPTY,
+				String.class, devType, ip);
+		log.debug(responseEntity.toString());
+		switch (DevType.getEnum(devType)) {
+		case Oper:
+			return _parseDevice(responseEntity.getBody(), DeviceVO.class);
+		case Switch:
+			return _parseDevice(responseEntity.getBody(), DevSwitchVO.class);
+		case SNTP:
+			return _parseDevice(responseEntity.getBody(), DevSNTPVO.class);
+		case IED:
+			return _parseDevice(responseEntity.getBody(), DevIEDVO.class);
+		default:
+			throw new Exception("deviceVO.getType() : " + responseEntity + " is unknown type.");
+		}
+	}
+	
+	private <T extends DeviceVO> ResponseBody<DeviceVO> _parseDevice(String body, Class<T> clz) throws JsonMappingException, JsonProcessingException {
+		return objectMapper.readValue(body, objectMapper.getTypeFactory().constructParametricType(ResponseBody.class, clz));
+	}
+	
+	public ResponseBody<DeviceVO> postCreateDevice(DeviceVO deviceVO) throws Exception {
 
 		switch (DevType.getEnum(deviceVO.getType())) {
 		case Oper:
-			return _postDeviceOper(deviceVO);
+			return _postCreateDeviceOper(deviceVO);
 		case Switch:
-			return _postDeviceSwitch(deviceVO);
+			return _postCreateDeviceSwitch(deviceVO);
 		case SNTP:
-			return _postDeviceSNTP(deviceVO);
+			return _postCreateDeviceSNTP(deviceVO);
 		case IED:
-			return _postDeviceIED(deviceVO);
+			return _postCreateDeviceIED(deviceVO);
 		default:
 			throw new Exception("deviceVO.getType() : " + deviceVO.getType() + " is unknown type.");
 		}
 	}
 
-	private ResponseBody<DeviceVO> _postDeviceOper(DeviceVO deviceVO)
+	private ResponseBody<DeviceVO> _postCreateDeviceOper(DeviceVO deviceVO)
 			throws JsonMappingException, JsonProcessingException {
 		MultiValueMap<String, String> headers = new HttpHeaders();
 		headers.put(HttpHeaders.CONTENT_TYPE, Collections.singletonList(MediaType.APPLICATION_FORM_URLENCODED_VALUE));
@@ -84,7 +106,7 @@ public class SystemEquipService {
 		});
 	}
 
-	private ResponseBody<DeviceVO> _postDeviceSwitch(DeviceVO deviceVO) throws Exception {
+	private ResponseBody<DeviceVO> _postCreateDeviceSwitch(DeviceVO deviceVO) throws Exception {
 		if(!(deviceVO instanceof DevSwitchVO)) {
 			throw new Exception("Parameter is not DevSwitchVO.class");
 		}
@@ -117,7 +139,7 @@ public class SystemEquipService {
 		return params;
 	}
 
-	private ResponseBody<DeviceVO> _postDeviceSNTP(DeviceVO deviceVO) throws Exception {
+	private ResponseBody<DeviceVO> _postCreateDeviceSNTP(DeviceVO deviceVO) throws Exception {
 		if(!(deviceVO instanceof DevSNTPVO)) {
 			throw new Exception("Parameter is not DevSNTPVO.class");
 		}
@@ -146,7 +168,7 @@ public class SystemEquipService {
 		return params;
 	}
 	
-	private ResponseBody<DeviceVO> _postDeviceIED(DeviceVO deviceVO) throws Exception {
+	private ResponseBody<DeviceVO> _postCreateDeviceIED(DeviceVO deviceVO) throws Exception {
 		if(!(deviceVO instanceof DevIEDVO)) {
 			throw new Exception("Parameter is not DevIEDVO.class");
 		}
@@ -175,7 +197,15 @@ public class SystemEquipService {
 		return params;
 	}
 
-	public ResponseI<DeviceVO> deleteDevice(String devType, String ip)
+	public ResponseBody<DeviceVO> postModifyDevice(DeviceVO deviceVO) throws Exception {
+		ResponseBody<DeviceVO> responseBody = deleteDevice(deviceVO.getType(), deviceVO.getIp());
+		if(!responseBody.isSuccess()) {
+			throw new Exception("Delete Fail");
+		}
+		return postCreateDevice(deviceVO);
+	}
+	
+	public ResponseBody<DeviceVO> deleteDevice(String devType, String ip)
 			throws JsonMappingException, JsonProcessingException {
 		ResponseEntity<String> responseEntity = restTemplate.exchange("/devs/{devType}?ip={ip}", HttpMethod.DELETE,
 				HttpEntity.EMPTY, String.class, devType, ip);
@@ -183,5 +213,4 @@ public class SystemEquipService {
 		return objectMapper.readValue(responseEntity.getBody(), new TypeReference<ResponseBody<DeviceVO>>() {
 		});
 	}
-
 }
