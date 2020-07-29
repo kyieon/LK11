@@ -25,7 +25,7 @@
         </div>
 				
 		<!-- Dialog -->
-		<div id="createDialog" class="modal" style="height: auto;">
+		<div id="createDialog" class="modal" style="max-width: 700px; height: auto;">
 			<div class="modal-header">
 				<h4 class="modal-title">생성</h4>
 			</div>
@@ -38,45 +38,188 @@
 					<option value="devIED">IED</option>
 				</select>
 				
-				<form id="createForm">
-					
+				<form id="devOperCreateForm">
 					<input name="type" type="hidden" value="devOper">
-					
 					<div style="margin-top: 40px;">
 						<div class="form-group row">
-							<label for="inputName" class="col-sm-2 col-form-label">이름</label>
+							<label class="col-sm-2 col-form-label">이름</label>
 							<div class="col-sm-10">
 								<input name="name" class="form-control">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="inputIP" class="col-sm-2 col-form-label">IP</label>
-							<div class="col-sm-10">
+							<label class="col-sm-2 col-form-label">IP</label>
+							<div class="col-sm-6">
 								<input name="ip" class="form-control">
 							</div>
-						</div>
-						<div class="form-group row">
-							<label for="inputDesc" class="col-sm-2 col-form-label">포트 개수</label>
-							<div class="col-sm-10">
+							<label class="col-sm-2 col-form-label">포트 개수</label>
+							<div class="col-sm-2">
 								<input name="ports" type="number" value="1" min="1" class="form-control">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="inputDesc" class="col-sm-2 col-form-label">설명</label>
+							<label class="col-sm-2 col-form-label">설명</label>
 							<div class="col-sm-10">
 								<textarea name="desc" class="form-control" rows="3"></textarea>
 							</div>
 						</div>
-						<div class="form-group row" style="display: none">
-							<label for="inputSCL" class="col-sm-2 col-form-label">SCL</label>
-							<div class="col-sm-10">
-								<input name="sclFile" type="file" class="form-control" disabled>
+					</div>
+				</form>
+				
+				<form id="devSwitchCreateForm" style="display: none">
+					<input name="type" type="hidden" value="devSwitch">
+					<div style="margin-top: 40px;">
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">이름</label>
+							<div class="col-sm-6">
+								<input name="name" class="form-control">
+							</div>
+							<div class="col-sm-4">
+								<div class="custom-control custom-checkbox">
+									<input id="createSwitchViewCheckbox" name="isView" type="checkbox" class="custom-control-input"> 
+									<label class="custom-control-label" for="createSwitchViewCheckbox">홈 화면 표시 여부</label>
+								</div>
 							</div>
 						</div>
-						<div class="form-group row" style="display: none">
-							<label for="inputIET" class="col-sm-2 col-form-label">IET</label>
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">IP</label>
+							<div class="col-sm-6">
+								<input name="ip" class="form-control">
+							</div>
+							<label class="col-sm-2 col-form-label">포트 개수</label>
+							<div class="col-sm-2">
+								<input name="ports" type="number" value="1" min="1" class="form-control">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">설명</label>
 							<div class="col-sm-10">
-								<input name="ietFile" type="file" class="form-control" disabled>
+								<textarea name="desc" class="form-control" rows="3"></textarea>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label>SNMP Ver</label>
+									<select name="snmpVersion" class="form-control">
+										<option value="snmpV1">Ver.1</option>
+										<option value="snmpV2">Ver.2</option>
+										<option value="snmpV3">Ver.3</option>
+									</select>
+                                </div>
+							</div>
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label>AuthProtocol</label>
+									<select name="authProtocol" class="form-control">
+										<option value="aptNone">None</option>
+										<option value="aptMD5">MD5</option>
+										<option value="aptSHA">SHA</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label>EncProtocol</label>
+									<select name="encProtocol" class="form-control">
+										<option value="eptNone">None</option>
+										<option value="eptDES">DES</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label>Community</label>
+									<input name="community" class="form-control" maxlength="32">
+                                </div>
+							</div>
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label>EncKey</label>
+									<input name="encKey" class="form-control" maxlength="64">
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label>UserName</label>
+									<input name="userName" class="form-control" maxlength="64">
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+				
+				<form id="devSNTPCreateForm" style="display: none">
+					<input name="type" type="hidden" value="devSNTP">
+					<div style="margin-top: 40px;">
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">이름</label>
+							<div class="col-sm-10">
+								<input name="name" class="form-control">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">IP</label>
+							<div class="col-sm-6">
+								<input name="ip" class="form-control">
+							</div>
+							<label class="col-sm-2 col-form-label">포트 개수</label>
+							<div class="col-sm-2">
+								<input name="ports" type="number" value="1" min="1" class="form-control">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">설명</label>
+							<div class="col-sm-10">
+								<textarea name="desc" class="form-control" rows="3"></textarea>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">SNTP 포트</label>
+							<div class="col-sm-10">
+								<input name="portNum" type="number" value="1" min="1" class="form-control">
+							</div>
+						</div>
+					</div>
+				</form>
+				
+				<form id="devIEDCreateForm" style="display: none">
+					<input name="type" type="hidden" value="devIED">
+					<div style="margin-top: 40px;">
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">이름</label>
+							<div class="col-sm-10">
+								<input name="name" class="form-control">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">IP</label>
+							<div class="col-sm-6">
+								<input name="ip" class="form-control">
+							</div>
+							<label class="col-sm-2 col-form-label">포트 개수</label>
+							<div class="col-sm-2">
+								<input name="ports" type="number" value="1" min="1" class="form-control">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">설명</label>
+							<div class="col-sm-10">
+								<textarea name="desc" class="form-control" rows="3"></textarea>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">SCL</label>
+							<div class="col-sm-10">
+								<input name="sclFile" type="file" class="form-control">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">IET</label>
+							<div class="col-sm-10">
+								<input name="ietFile" type="file" class="form-control">
 							</div>
 						</div>
 					</div>
@@ -93,44 +236,8 @@
 				<h4 class="modal-title">수정</h4>
 			</div>
 			<div class="modal-body">
-				<form id="modifyForm">
-					<div class="form-group row">
-						<label for="inputName" class="col-sm-2 col-form-label">이름</label>
-						<div class="col-sm-10">
-							<input name="name" class="form-control">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="inputIP" class="col-sm-2 col-form-label">IP</label>
-						<div class="col-sm-10">
-							<input name="ip" class="form-control">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="inputDesc" class="col-sm-2 col-form-label">포트 개수</label>
-						<div class="col-sm-10">
-							<input name="ports" type="number" value="1" min="1" class="form-control">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="inputDesc" class="col-sm-2 col-form-label">설명</label>
-						<div class="col-sm-10">
-							<textarea name="desc" class="form-control" rows="3"></textarea>
-						</div>
-					</div>
-					<div class="form-group row" style="display: none">
-						<label for="inputSCL" class="col-sm-2 col-form-label">SCL</label>
-						<div class="col-sm-10">
-							<input name="sclFile" type="file" class="form-control" disabled>
-						</div>
-					</div>
-					<div class="form-group row" style="display: none">
-						<label for="inputIET" class="col-sm-2 col-form-label">IET</label>
-						<div class="col-sm-10">
-							<input name="ietFile" type="file" class="form-control" disabled>
-						</div>
-					</div>
-				</form>
+
+
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-outline-primary" onClick="set()">OK</button>	 
@@ -165,14 +272,22 @@
 		}
 	
 		function add() {
-			var $form = $('#createForm');
-			var type = (_.find($form.serializeArray(), (data) => data.name == 'type') || '').value
+			var type = $('#inputType').val()
+			var $form = $('#' + type + 'CreateForm');
 			
 			$.Advisor.postByForm($form, {
 				url: '/api/v1/device/create/' + type,
+				convertData: function(data) {
+					if('devSwitch' == type) {
+						var isViewData = _.find(data, (data) => data.name == 'isView')
+						if(isViewData && isViewData.value)
+							isViewData.value = $('#createSwitchViewCheckbox').is(':checked')
+						else
+							data.push({name: "isView", value: false, type: "checkbox", required: false})
+					}
+					return data;
+				},
 				validation: function(data) {
-		        	console.log(data)
-
 		        	var name = (_.find(data, (data) => data.name == 'name') || '').value
 		    		if(!name) {
 						alert('이름을 입력 해 주세요.')
@@ -197,7 +312,31 @@
 		            }
 
 		        	var type = (_.find(data, (data) => data.name == 'type') || '').value
-		    		if(type == 'devIED') {
+		        	
+		        	if(type == 'devSwitch') {
+		        		var community = (_.find(data, (data) => data.name == 'community') || '').value
+			            if(!community) {
+							alert('Community를 입력 해 주세요.')
+							return false
+			            }
+		        		var encKey = (_.find(data, (data) => data.name == 'encKey') || '').value
+			            if(!community) {
+							alert('EncKey를 입력 해 주세요.')
+							return false
+			            }
+		        		var userName = (_.find(data, (data) => data.name == 'userName') || '').value
+			            if(!userName) {
+							alert('UserName를 입력 해 주세요.')
+							return false
+			            }
+				        
+			        } else if(type == 'devSNTP') {
+			        	var portNum = (_.find(data, (data) => data.name == 'portNum') || '').value
+			            if(!portNum) {
+							alert('SNTP 포트를 입력 해 주세요.')
+							return false
+			            }
+			        } else if(type == 'devIED') {
 		    			var sclFile = (_.find(data, (data) => data.name == 'sclFile') || '').value
 			    		if(!sclFile) {
 							alert('SCL 파일을 선택 해 주세요.')
@@ -254,15 +393,11 @@
 		$(document).ready(function() {
 
 			$('#inputType').change(function() {
-				if($(this).val() != 'devIED') {
-					$(this).parent().find('div.form-group:gt(3)').css('display', 'none')
-					$(this).parent().find('div.form-group:gt(3)').find('input[type="file"]').attr('disabled', true)
-				} else {
-					$(this).parent().find('div.form-group:gt(3)').css('display', '')
-					$(this).parent().find('div.form-group:gt(3)').find('input[type="file"]').attr('disabled', false)
-				}
-				$("#createForm")[0].reset();
-				$('#createForm input[name="type"]').val($(this).val());
+				var type = $(this).val();
+				$(this).parent().find('form').css('display', 'none')
+				var $form = $('#' + type + 'CreateForm')
+				$form.css('display', '')
+				$form[0].reset();
 				return false;
 			});
 

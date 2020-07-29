@@ -105,23 +105,14 @@ public class SystemEquipService {
 	private MultiValueMap<String, ?> makeFormBody(DevSwitchVO devSwitchVO) {
 		MultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
 		Map<String, Object> map = new HashMap<>();
-		
-//		map.put("scan", devSwitchVO.getScanPeriod());
-//		map.put("ver", devSwitchVO.getSnmpVersion());
-//		map.put("comm", devSwitchVO.getCommunity());
-//		map.put("auth", devSwitchVO.getAuthProtocol());
-//		map.put("enc", devSwitchVO.getEncProtocol());
-//		map.put("enckey", devSwitchVO.getEncKey());
-//		map.put("username", devSwitchVO.getUserName());
-
-		map.put("scan", 1000L);
-		map.put("ver", SNMPVer.v2.getValue());
-		map.put("comm", "lk11");
-		map.put("auth", AuthProtocol.None.getValue());
-		map.put("enc", EncProtocol.None.getValue());
-		map.put("enckey", "TestEncKey");
-		map.put("username", "TestUserName");
-		
+		map.put("scan", 5000L);
+		map.put("ver", SNMPVer.getEnum(devSwitchVO.getSnmpVersion()).getValue());
+		map.put("comm", devSwitchVO.getCommunity());
+		map.put("auth", AuthProtocol.getEnum(devSwitchVO.getAuthProtocol()).getValue());
+		map.put("enc", EncProtocol.getEnum(devSwitchVO.getEncProtocol()).getValue());
+		map.put("enckey", devSwitchVO.getEncKey());
+		map.put("username", devSwitchVO.getUserName());
+		map.put("isview", devSwitchVO.getIsView());
 		params.setAll(map);
 		return params;
 	}
@@ -147,11 +138,8 @@ public class SystemEquipService {
 	private MultiValueMap<String, ?> makeFormBody(DevSNTPVO devSNTPVO) {
 		MultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
 		Map<String, Object> map = new HashMap<>();
-		
-//		map.put("portnum", devSNTPVO.getPortNum());
-//		map.put("enable", devSNTPVO.getEnable());
 
-		map.put("portnum", 20);
+		map.put("portnum", devSNTPVO.getPortNum());
 		map.put("enable", true);
 		
 		params.setAll(map);

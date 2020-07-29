@@ -7,16 +7,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class DevSNTPVO extends DeviceVO {
 
 	@JsonAlias("PortNum")
-	private int portNum;
+	private Integer portNum;
 
 	@JsonAlias("Enabled")
 	private Boolean enable;
 
-	public int getPortNum() {
+	public Integer getPortNum() {
 		return portNum;
 	}
 
-	public void setPortNum(int portNum) {
+	public void setPortNum(Integer portNum) {
 		this.portNum = portNum;
 	}
 

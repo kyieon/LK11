@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class DevSwitchVO extends DeviceVO {
 
 	@JsonAlias("ScanPeriod")
-	private int scanPeriod;
+	private Integer scanPeriod;
 	
 	@JsonAlias("SNMPVer")
 	private String snmpVersion;
@@ -30,11 +30,11 @@ public class DevSwitchVO extends DeviceVO {
 	@JsonAlias("IsView")
 	private Boolean isView;
 
-	public int getScanPeriod() {
+	public Integer getScanPeriod() {
 		return scanPeriod;
 	}
 
-	public void setScanPeriod(int scanPeriod) {
+	public void setScanPeriod(Integer scanPeriod) {
 		this.scanPeriod = scanPeriod;
 	}
 
