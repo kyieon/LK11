@@ -27,6 +27,20 @@
     
 	<script type="text/javascript">
 
+		function updateCapture(nicId, checkBoxId) {
+			var checked = $('#' + checkBoxId).is(':checked')
+			
+			$.Advisor.put('/api/v1/networkcardnic/capture', {
+            	data: JSON.stringify({
+            		nicId: nicId,
+            		nicIsCapture: checked
+                }),
+				error: function(message) {
+					alert('수정 실패' + message)
+				}
+            })
+		}
+		
 		$(document).ready(function() {
 
 			function refresh() {
@@ -62,14 +76,22 @@
 				, "columns" : [
 					{title: '이름'  , data: 'nicName'},
 					{title: 'IP 주소' , data: 'nicIp'},
-					{title: '설명' , data: 'nicDesc'}
+					{title: '설명' , data: 'nicDesc'},
+					{title: '캡처' , data: 'nicIsCapture', "render": function ( data, type, row, meta ) {
+						var checkBoxId = 'NicIsCaptureCheckbox' + meta.col + '_' + meta.row;
+						var checked = (data == true) ? 'checked' : ''
+						return   '<div class="custom-control custom-checkbox">' 
+								+  '<input id="'+ checkBoxId + '" type="checkbox" class="custom-control-input" onClick="updateCapture(\'' + row.nicId + '\', \'' + checkBoxId + '\')" ' + checked + '>' 
+								+  '<label class="custom-control-label" for="'+ checkBoxId + '"></label>'
+								+'</div>'
+                    }},
 				]
 				 
 			});
 			$('#example thead tr').clone(true).appendTo( '#example thead' );
 			$('#example thead tr:eq(1) th').each( function (i) {
 
-				if(i == '2'){ 
+				if(i == '2' || i == '3'){ 
 					$(this).html(''); 
 					return true;
 				} else {

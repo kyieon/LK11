@@ -35,7 +35,7 @@ public class NetworkCardNicVO {
 	
 	@Column(name = "캡쳐", index = 6)
 	@JsonAlias("NicIsCapture")
-	private String nicIsCapture;
+	private Boolean nicIsCapture;
 	
 	@Column(name = "업데이트날짜", index = 7)
 	@JsonAlias("NicUpdatetime")
@@ -89,11 +89,11 @@ public class NetworkCardNicVO {
 		this.nicMac = nicMac;
 	}
 
-	public String getNicIsCapture() {
+	public Boolean getNicIsCapture() {
 		return nicIsCapture;
 	}
 
-	public void setNicIsCapture(String nicIsCapture) {
+	public void setNicIsCapture(Boolean nicIsCapture) {
 		this.nicIsCapture = nicIsCapture;
 	}
 
