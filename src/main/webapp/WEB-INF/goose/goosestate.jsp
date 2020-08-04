@@ -32,7 +32,7 @@
                      	  <button type="button" class="btn btn-primary mb-1" style="float:left;">초기화</button>
                      	  <button type="button" class="btn btn-primary mb-1" style="float:right;">CSV 파일 저장</button>
                      </div>
-            		<div style="overflow:scroll; width:1570px; height:500px;">
+            		<div style="overflow:auto;">
             			<table id="example" class="display" style="width: 100%"></table>
             		 </div>
                 </div>

@@ -8994,6 +8994,13 @@ body {
   padding: 25px; 
 }
 
+.dash-content-nopadding {
+  -webkit-box-flex: 2;
+  -webkit-flex-grow: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+}
+
 .dash-row {
   margin-bottom: 30px; }
 
@@ -9409,6 +9416,8 @@ body {
   -webkit-align-items: flex-end;
       -ms-flex-align: end;
           align-items: flex-end; }
+          
+          
 
 .stats-title {
   font-size: 26px;
@@ -9498,12 +9507,25 @@ body {
 	text-align:center;
 }
 
+.portDiv70 {
+	width:80px;
+	float:left;
+	text-align:center;
+}
+
+
 
 .portDivWidth {
 	width:250px;
 	float:left;
 	text-align:center;
 	margin: 0px 60px 0px 60px;
+}
+
+.portDivWidthNoMargin {
+	width:280px;
+	float:left;
+
 }
 
 .portShape{
