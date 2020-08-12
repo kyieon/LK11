@@ -83,7 +83,7 @@ public class SystemConfigurationService {
 
 	public ResponseBody<String> putFile(String key, MultipartFile multipartFile) throws JsonMappingException, JsonProcessingException {
 		MultiValueMap<String, String> headers = new HttpHeaders();
-		headers.put(HttpHeaders.CONTENT_TYPE, Collections.singletonList(MediaType.APPLICATION_FORM_URLENCODED_VALUE));
+		headers.put(HttpHeaders.CONTENT_TYPE, Collections.singletonList(MediaType.MULTIPART_FORM_DATA_VALUE));
 		MultiValueMap<String, ?> body = makeFormBody(key, multipartFile);
 		HttpEntity<?> httpEntity = new HttpEntity<>(body, headers);
 		ResponseEntity<String> responseEntity = restTemplate.exchange("/sys/file", HttpMethod.PUT, httpEntity, String.class);
