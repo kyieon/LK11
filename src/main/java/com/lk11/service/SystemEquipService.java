@@ -144,28 +144,15 @@ public class SystemEquipService {
 			throw new Exception("Parameter is not DevSNTPVO.class");
 		}
 		
-		DevSNTPVO devSNTPVO = (DevSNTPVO) deviceVO;
 		MultiValueMap<String, String> headers = new HttpHeaders();
 		headers.put(HttpHeaders.CONTENT_TYPE, Collections.singletonList(MediaType.APPLICATION_FORM_URLENCODED_VALUE));
-		MultiValueMap<String, ?> body = makeFormBody(devSNTPVO);
-		HttpEntity<?> httpEntity = new HttpEntity<>(body, headers);
+		HttpEntity<?> httpEntity = new HttpEntity<>(headers);
 		ResponseEntity<String> responseEntity = restTemplate.exchange(
 				"/devs/devSNTP?name={name}&desc={desc}&ip={ip}&ports={ports}", HttpMethod.POST, httpEntity,
 				String.class, deviceVO.getName(), deviceVO.getDesc(), deviceVO.getIp(), deviceVO.getPorts());
 		log.debug(responseEntity.toString());
 		return objectMapper.readValue(responseEntity.getBody(), new TypeReference<ResponseBody<DeviceVO>>() {
 		});
-	}
-	
-	private MultiValueMap<String, ?> makeFormBody(DevSNTPVO devSNTPVO) {
-		MultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
-		Map<String, Object> map = new HashMap<>();
-
-		map.put("portnum", devSNTPVO.getPortNum());
-		map.put("enable", true);
-		
-		params.setAll(map);
-		return params;
 	}
 	
 	private ResponseBody<DeviceVO> _postCreateDeviceIED(DeviceVO deviceVO) throws Exception {

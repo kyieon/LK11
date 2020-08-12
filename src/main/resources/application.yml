@@ -1,36 +1,19 @@
 spring:  profiles:    active:    - dev
-
-  devtools:
+  h2:    console:      enabled: false  devtools:
     livereload:
       enabled: true
     restart:
       enabled: true
- 
   resources:
     chain:
-      compressed: true
-      cache: true      server:  port: ${port:8000}  servlet:    session:      timeout: -1      cookie:        name: SESSION_ID        max-age: -1    encoding:      charset: UTF-8  compression:    enabled: true  error:    whitelabel:      enabled: false      logging:  config: classpath:logback-spring.xml      --- #dev
+      compressed: true      cache: true      server:  port: ${port:8000}  servlet:    session:      timeout: -1      cookie:        name: SESSION_ID        max-age: -1    encoding:      charset: UTF-8  compression:    enabled: true  error:    whitelabel:      enabled: falselogging:  config: classpath:logback-spring.xml      
+--- #dev
 
 spring:
-  profiles: dev
+  profiles: devrest:  ip: 121.157.1.76  port: 10006  resources:  download-locations: file:///C:/Temp/
 
-#  datasource:
-#    platform: h2
-#    url: jdbc:log4jdbc:h2:file:./h2/local
-#    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-#    username: sa
-#    password: sa
-#
-#  h2:
-#    console:
-#      enabled: true#      path: /h2-console
-  h2:    console:      enabled: false      
-mybatis:
-  mapper-locations:
-  - classpath:/mapper/**/*.xml
-rest:  ip: 121.157.1.76  port: 10006
---- #prod
-
+--- #prod
 spring:
   profiles: prod
-  h2:    console:      enabled: false rest:  ip: 192.168.76.91  port: 8090      
+ 
+rest:  ip: 192.168.76.91  port: 8090      resources:  download-locations: file:///C:/SAMD/server

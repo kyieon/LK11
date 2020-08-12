@@ -58,7 +58,7 @@
             	res = convertJSONMessage(res);
             	if(!res.success) {
 					var message = res.message || ''
-					console.log(message, false);
+					console.error(message, false);
 					if(option.fail) {
 						option.fail(res.data, message)
 					}
@@ -71,7 +71,7 @@
             error: function(req, status, message) {
             	var resText = req.responseText || '';
             	if(!option.error) {
-					console.log(status + '[' + req.status + ']' + ' - ' + getErrorMessage(resText), false);
+					console.error(status + '[' + req.status + ']' + ' - ' + getErrorMessage(resText), false);
 					return;
 				}
             	option.error(getErrorMessage(resText));

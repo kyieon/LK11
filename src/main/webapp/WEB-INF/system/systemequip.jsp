@@ -176,12 +176,6 @@
 								<textarea name="desc" class="form-control" rows="3"></textarea>
 							</div>
 						</div>
-						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">SNTP 포트</label>
-							<div class="col-sm-10">
-								<input name="portNum" type="number" value="1" min="1" class="form-control">
-							</div>
-						</div>
 					</div>
 				</form>
 				
@@ -376,12 +370,6 @@
 								<textarea name="desc" class="form-control" rows="3"></textarea>
 							</div>
 						</div>
-						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">SNTP 포트</label>
-							<div class="col-sm-10">
-								<input name="portNum" type="number" value="1" min="1" class="form-control">
-							</div>
-						</div>
 					</div>
 				</form>
 				
@@ -517,11 +505,7 @@
 			            }
 				        
 			        } else if(type == 'devSNTP') {
-			        	var portNum = (_.find(data, (data) => data.name == 'portNum') || '').value
-			            if(!portNum) {
-							alert('SNTP 포트를 입력 해 주세요.')
-							return false
-			            }
+
 			        } else if(type == 'devIED') {
 		    			var sclFile = (_.find(data, (data) => data.name == 'sclFile') || '').value
 			    		if(!sclFile) {
@@ -612,11 +596,7 @@
 			            }
 				        
 			        } else if(type == 'devSNTP') {
-			        	var portNum = (_.find(data, (data) => data.name == 'portNum') || '').value
-			            if(!portNum) {
-							alert('SNTP 포트를 입력 해 주세요.')
-							return false
-			            }
+
 			        } else if(type == 'devIED') {
 		    			var sclFile = (_.find(data, (data) => data.name == 'sclFile') || '').value
 			    		if(!sclFile) {
