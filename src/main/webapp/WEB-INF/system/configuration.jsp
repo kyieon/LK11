@@ -371,7 +371,8 @@
 			$.Advisor.post('/api/v1/configuration/upload/iet', {
 				data: formData,
 				success: function(res) {
-					$('input[name="sysexternaliet"]').val(res)
+					var fileName = res.replace(/^.*(\\|\/|\:)/, '');
+					$('input[name="sysexternaliet"]').val(fileName)
 				},
 				fail: function(data, message) {
 					alert('업로드 실패 : ' + message)
@@ -389,7 +390,8 @@
 			$.Advisor.post('/api/v1/configuration/upload/scl', {
 				data: formData,
 				success: function(res) {
-					$('input[name="sysexternalscl"]').val(res)
+					var fileName = res.replace(/^.*(\\|\/|\:)/, '');
+					$('input[name="sysexternalscl"]').val(fileName)
 				},
 				fail: function(data, message) {
 					alert('업로드 실패 : ' + message)
