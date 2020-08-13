@@ -17,4 +17,4 @@ spring:
   profiles: prod
  
 rest:
-  ip: 192.168.76.91  port: 8090      resources:  download-locations: file:///C:/SAMD/serverlogging:  config: classpath:logback-spring-prod.xml  
+  ip: 192.168.76.91  port: 8090      resources:  download-locations: file:///C:/SAMD/server/logging:  config: classpath:logback-spring-prod.xml  
