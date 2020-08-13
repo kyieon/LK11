@@ -31,7 +31,7 @@ public class UserController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseI<List<UserVO>> getDatas() {
 		try {
-			log.info(">> Input Request");
+			log.debug(">> Input Request");
 			return userService.getUsers();
 		} catch (Exception e) {
 			log.error("", e);
@@ -107,7 +107,7 @@ public class UserController {
 	
 	@RequestMapping(path = "/export", method = RequestMethod.GET)
 	public ResponseEntity<?> export() throws Exception {
-		log.info(">> Input Request");
+		log.debug(">> Input Request");
 		return userService.export();
 	}
 }

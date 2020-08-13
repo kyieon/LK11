@@ -38,7 +38,7 @@ public class SystemPortController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseI<List<PortAllVO>> getDatas() {
 		try {
-			log.info("INPUT PORTS ");
+			log.debug("INPUT PORTS ");
 			return systemPortService.getPorts();
 		} catch (Exception e) {
 			log.error("", e);

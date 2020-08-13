@@ -6,14 +6,15 @@ spring:  profiles:    active:    - dev
       enabled: true
   resources:
     chain:
-      compressed: true      cache: true      server:  port: ${port:8000}  servlet:    session:      timeout: -1      cookie:        name: SESSION_ID        max-age: -1    encoding:      charset: UTF-8  compression:    enabled: true  error:    whitelabel:      enabled: falselogging:  config: classpath:logback-spring.xml      
---- #dev
+      compressed: true      cache: true      server:  port: ${port:8000}  servlet:    session:      timeout: -1      cookie:        name: SESSION_ID        max-age: -1    encoding:      charset: UTF-8  compression:    enabled: true  error:    whitelabel:      enabled: false--- #dev
 
 spring:
-  profiles: devrest:  ip: 121.157.1.76  port: 10006  resources:  download-locations: file:///C:/Temp/
+  profiles: dev
+rest:  ip: 121.157.1.76  port: 10006  resources:  download-locations: file:///C:/Temp/logging:  config: classpath:logback-spring-dev.xml      
 
---- #prod
-spring:
+--- #prod
+spring:
   profiles: prod
  
-rest:  ip: 192.168.76.91  port: 8090      resources:  download-locations: file:///C:/SAMD/server
+rest:
+  ip: 192.168.76.91  port: 8090      resources:  download-locations: file:///C:/SAMD/serverlogging:  config: classpath:logback-spring-prod.xml  

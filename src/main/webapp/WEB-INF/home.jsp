@@ -221,60 +221,6 @@
 						}
 					}
 				},
-				fail: function() {
-
-					//Test
-					var dataSet = [
-					    {
-					        "devType": "devSwitch",
-					        "devIdx": 10,
-					        "devName": "Swtich01",
-					        "devIp": "10.34.52.13",
-					        "portList": [
-					          {
-					            "portNum": Math.floor(Math.random() * 20),
-					            "portStatus": "portDownLink",
-					            "targetIdx": 6,
-					            "targetPort": 1,
-					            "targetName": "Oper01",
-					            "targetIp": "192.168.0.100"
-					          },
-					          {
-					            "portNum": 2,
-					            "portStatus": "portDownLink",
-					            "targetIdx": 6,
-					            "targetPort": 2,
-					            "targetName": "Oper01",
-					            "targetIp": "192.168.0.100"
-					          }
-					        ]
-					      },
-					      {
-					        "devType": "devSwitch",
-					        "devIdx": 11,
-					        "devName": "Swtich02",
-					        "devIp": "10.34.52.12",
-					        "portList": [
-					          {
-					            "portNum": 8,
-					            "portStatus": "portUpLink",
-					            "targetIdx": 15,
-					            "targetPort": 1,
-					            "targetName": "Oper04",
-					            "targetIp": "192.168.0.103"
-					          }
-					        ]
-					      }
-					    ]
-				    
-					$("#switchBody").empty()
-					for (var i = 0; i < dataSet.length; i++) {
-						var portInfo = dataSet[i];
-						if (portInfo.devType == 'devSwitch') {// devSwitch
-							makeDevSwitch(portInfo);
-						}
-					}
-				}
 			})
 		}
 		

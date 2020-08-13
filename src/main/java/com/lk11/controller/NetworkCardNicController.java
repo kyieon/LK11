@@ -29,7 +29,7 @@ public class NetworkCardNicController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseI<List<NetworkCardNicVO>> getDatas() {
 		try {
-			log.info("INPUT NETWORK CARD NIC");
+			log.debug("INPUT NETWORK CARD NIC");
 			return networkCardNicService.getNetworkCardNics();
 		} catch (Exception e) {
 			log.error("", e);

@@ -31,7 +31,7 @@ public class SystemEquipController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseI<List<DeviceVO>> getDatas() {
 		try {
-			log.info(">> Input Request");
+			log.debug(">> Input Request");
 			return systemEquipService.getDevices();
 		} catch (Exception e) {
 			log.error("", e);

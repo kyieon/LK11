@@ -30,7 +30,7 @@ public class SystemConfigurationController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseI<List<SystemConfigVO>> getData() {
 		try {
-			log.info(">> Input Request");
+			log.debug(">> Input Request");
 			return systemConfigurationService.getData();
 		} catch (Exception e) {
 			log.error("", e);

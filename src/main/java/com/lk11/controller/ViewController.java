@@ -5,17 +5,18 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ViewController {
 
 	private static final Logger log = LoggerFactory.getLogger(ViewController.class);
-	
+
+	/**
+	 * 최초
+	 * @return
+	 */
 	@RequestMapping
 	public String showView(Authentication authentication) {
-		log.info(">> showView");
 		if(!isLogin(authentication)) {
 			return "redirect:/login";
 		}
@@ -27,16 +28,22 @@ public class ViewController {
 			return false;
 		return true;
 	}
-
+	
+	/**
+	 * 로그인
+	 * @return
+	 */
 	@RequestMapping(path = "/login")
 	public String showLoginView(Authentication authentication) {
-		log.info(">> showLoginView");
 		return "login";
 	}
 	
+	/**
+	 * 홈
+	 * @return
+	 */
 	@RequestMapping(path = "/home")
 	public String showHomeView() {
-		log.info(">> showHomeView");
 		return "home";
 	}
 	
@@ -46,10 +53,8 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/history/softwarehistory")
 	public String showSoftwareHistory() {
-		log.info(">> softwarehistory");
 		return "/history/softwarehistory";
 	}
-	
 	
 	/**
 	 * 이더넷 이력
@@ -57,10 +62,8 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/history/ethernethistory")
 	public String showEthernetHistory() {
-		log.info(">> ethernethistory");
 		return "/history/ethernethistory";
 	}
-	
 	
 	/**
 	 * 이더넷 스위치 상태
@@ -68,11 +71,8 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/history/ethernetswitchstate")
 	public String showEthernetSwitchState() {
-		log.info(">> ethernetswitchstate");
 		return "/history/ethernetswitchstate";
 	}
-	
-	
 	
 	/**
 	 * IED 61850 연결 상태
@@ -80,13 +80,8 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/history/iedconnectionstate")
 	public String showIedConnectionState() {
-		log.info(">> iedconnectionstate");
 		return "/history/iedconnectionstate";
 	}
-	
-	
-	
-	
 	
 	/**
 	 * GOOSE 실시간이력
@@ -94,10 +89,8 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/goose/realtimehistory")
 	public String showRealTimeHistory() {
-		log.info(">>goose realtimehistory");
 		return "/goose/realtimehistory";
 	}
-	
 	
 	/**
 	 * GOOSE 상태
@@ -105,12 +98,8 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/goose/goosestate")
 	public String showGooseState() {
-		log.info(">> goosestate");
 		return "/goose/goosestate";
 	}
-	
-	
-	
 	
 	/**
 	 * MMS 실시간이력
@@ -118,7 +107,6 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/mms/realtimehistory")
 	public String showMmsRealTimeHistory() {
-		log.info(">>mms realtimehistory");
 		return "/mms/realtimehistory";
 	}
 	
@@ -128,7 +116,6 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/mms/reportstate")
 	public String showReportState() {
-		log.info(">> reportstate");
 		return "/mms/reportstate";
 	}
 	
@@ -138,7 +125,6 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/network/networkpacket")
 	public String showNetworkPacket() {
-		log.info(">> networkpacket");
 		return "/network/networkpacket";
 	}
 	
@@ -148,7 +134,6 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/system/systemequip")
 	public String showSystemEquip() {
-		log.info(">> showSystemEquip");
 		return "/system/systemequip";
 	}
 
@@ -157,7 +142,6 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/system/port")
 	public String showSystemPortView() {
-		log.info(">> showSystemPortView");
 		return "/system/port";
 	}
 	
@@ -166,7 +150,6 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/system/networkcardnic")
 	public String showSystemNetworkCardNicView() {
-		log.info(">> showSystemNetworkCardNicView");
 		return "/system/networkcardnic";
 	}
 
@@ -175,7 +158,6 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/system/packetignore")
 	public String showSystemPacketIgnoreView() {
-		log.info(">> showSystemPacketIgnoreView");
 		return "/system/packetignore";
 	}
 	
@@ -184,7 +166,6 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/system/usermanagement")
 	public String showSystemUserManagementView() {
-		log.info(">> showSystemUserManagementView");
 		return "/system/usermanagement";
 	}
 	
@@ -193,7 +174,6 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/system/configuration")
 	public String showConfigurationView() {
-		log.info(">> showConfigurationView");
 		return "/system/configuration";
 	}
 
@@ -202,17 +182,14 @@ public class ViewController {
 	 */
 	@RequestMapping(path = "/validity/operatingstandardsexam")
 	public String shoOperatingStandardsExam() {
-		log.info(">> operatingstandardsexam");
 		return "/validity/operatingstandardsexam";
 	}
-	
 	
 	/**
 	 * 유효성 검사 - IET 검사
 	 */
 	@RequestMapping(path = "/validity/ietexam")
 	public String showIetExam() {
-		log.info(">> ietexam");
 		return "/validity/ietexam";
 	}
 }
