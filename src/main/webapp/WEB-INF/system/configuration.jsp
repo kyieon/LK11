@@ -356,12 +356,12 @@
 
     	function downloadIETFile() {
         	var fileName = $('input[name="sysexternaliet"]').val()
-			window.location = 'download/' + fileName
+			window.location = '/download/' + fileName
         }
 
         function downloadSCLFile() {
         	var fileName = $('input[name="sysexternalscl"]').val()
-			window.location = 'download/' + fileName
+			window.location = '/download/' + fileName
         }
         
         function uploadIETFile() {
