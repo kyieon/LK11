@@ -26,15 +26,15 @@
 					<div class="card easion-card">
 						<div class="card-body ">
 							<div class="easion-demo-badges">
-								<span class="badge1 badge-success mb-1">&nbsp;&nbsp;&nbsp;&nbsp;MMS
-									통신상태&nbsp;&nbsp;&nbsp;</span> <span class="badge1 badge-success mb-1">GOOSE
-									미송신 상태</span> <span class="badge1 badge-success mb-1">GOOSE 미등록
-									상태</span> <span class="badge1 badge-success mb-1">Report 미송신 상태</span>
+								<span class="badge1 badge-dark mb-1" id="status_mms">&nbsp;&nbsp;&nbsp;&nbsp;MMS
+									통신상태&nbsp;&nbsp;&nbsp;</span> <span class="badge1 badge-dark mb-1" id="status_goose_unsent">GOOSE
+									미송신 상태</span> <span class="badge1 badge-dark mb-1" id="status_goose_unreg">GOOSE 미등록
+									상태</span> <span class="badge1 badge-dark mb-1" id="status_report_unsent">Report 미송신 상태</span>
 							</div>
 							<div class="easion-demo-badges mt-3">
-								<span class="badge1 badge-success mb-1">네트워크 포트 상태</span> <span
-									class="badge1 badge-success mb-1">&nbsp;&nbsp;&nbsp;시각
-									동기화 상태&nbsp;&nbsp;&nbsp;</span> <span class="badge1 badge-danger mb-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주요기능
+								<span class="badge1 badge-dark mb-1" id="status_net_port">네트워크 포트 상태</span> <span
+									class="badge1 badge-dark mb-1" id="status_time_sync">&nbsp;&nbsp;&nbsp;시각
+									동기화 상태&nbsp;&nbsp;&nbsp;</span> <span class="badge1 badge-dark mb-1" id="status_system">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주요기능
 									상태&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span> &nbsp;&nbsp;범례 :
 								</span> <span class="badge1 badge-success mb-1"
 									style="padding: 1em 3em;">&nbsp;정상&nbsp; </span> <span
@@ -206,7 +206,8 @@
 		}
 
 		function init() {
-			getSwitch()
+			getSwitch();
+			getTopStatus();
 		}
 		
 		function getSwitch() {
@@ -223,6 +224,29 @@
 				},
 			})
 		}
+
+		function getTopStatus(){
+			$.Advisor.get('/api/v1/home/topStatus', {
+				success : function(dataSet) {
+					for (var i = 0; i < dataSet.length; i++) {
+						var topInfo = dataSet[i];
+						changeTopStatus((topInfo.statusType).toLowerCase(), topInfo.statusValue);
+					}
+				},
+			})
+
+		}
+
+		function changeTopStatus(id, statusValue){
+			debugger;
+			var status = "badge-success";
+			if(statusValue == "true"){
+				status = "badge-danger";
+			}
+			
+			$("#"+id).attr('class',"badge1 "+status+"  mb-1");
+		}
+	
 		
 		$(document).ready(function() {
 			$(document).tooltip();
