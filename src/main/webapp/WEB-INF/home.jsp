@@ -65,8 +65,8 @@
 										</thead>
 										<tbody>
 											<tr>
-												<td><span class="badge1 badge-warning"
-													style="padding: 1em 2em;">중지 </span></td>
+												<td><span id="proc_packet"
+													style="padding: 1em 2em;"></span></td>
 												<td>패킷저장</td>
 												<td>
 													<button type="button" class="btn btn-outline-dark mb-1">시작</button>
@@ -75,8 +75,8 @@
 												</td>
 											</tr>
 											<tr>
-												<td><span class="badge1 badge-success"
-													style="padding: 1em 2em;">동작중 </span></td>
+												<td><span id="proc_network"
+													style="padding: 1em 2em;"></span></td>
 												<td>네트워크 상태감시</td>
 												<td>
 													<button type="button" class="btn btn-outline-dark mb-1">시작</button>
@@ -85,8 +85,8 @@
 												</td>
 											</tr>
 											<tr>
-												<td><span class="badge1 badge-success"
-													style="padding: 1em 2em;">동작중 </span></td>
+												<td><span id="proc_mms"
+													style="padding: 1em 2em;"></span></td>
 												<td>MMS 메시지 관리</td>
 												<td>
 													<button type="button" class="btn btn-outline-dark mb-1">시작</button>
@@ -95,8 +95,8 @@
 												</td>
 											</tr>
 											<tr>
-												<td><span class="badge1 badge-success"
-													style="padding: 1em 2em;">동작중 </span></td>
+												<td><span id="proc_goose"
+													style="padding: 1em 2em;"></span></td>
 												<td>GOOSE메시지 관리</td>
 												<td>
 													<button type="button" class="btn btn-outline-dark mb-1">시작</button>
@@ -105,8 +105,8 @@
 												</td>
 											</tr>
 											<tr>
-												<td><span class="badge1 badge-success"
-													style="padding: 1em 2em;">동작중 </span></td>
+												<td><span id="proc_timesync"
+													style="padding: 1em 2em;"></span></td>
 												<td>시각동기상태</td>
 												<td>
 													<button type="button" class="btn btn-outline-dark mb-1">시작</button>
@@ -208,6 +208,7 @@
 		function init() {
 			getSwitch();
 			getTopStatus();
+			getProc();
 		}
 		
 		function getSwitch() {
@@ -237,16 +238,35 @@
 
 		}
 
+		function getProc(){
+			$.Advisor.get('/api/v1/home/proc', {
+				success : function(dataSet) {
+					for (var i = 0; i < dataSet.length; i++) {
+						var procInfo = dataSet[i];
+						changeLeftBottomStatus((procInfo.procType).toLowerCase(), procInfo.procState);
+					}
+				},
+			})
+		}
+		
 		function changeTopStatus(id, statusValue){
-			debugger;
 			var status = "badge-success";
 			if(statusValue == "true"){
 				status = "badge-danger";
 			}
-			
 			$("#"+id).attr('class',"badge1 "+status+"  mb-1");
 		}
-	
+
+		function changeLeftBottomStatus(id, state){
+			var	status = "badge-warning";
+			var	msg = '중지'
+			if(state){
+				status = "badge-success";
+				msg = '동작'
+			}
+			$("#"+id).attr('class', "badge1 "+ status);
+			$("#"+id).text(msg)
+		}
 		
 		$(document).ready(function() {
 			$(document).tooltip();

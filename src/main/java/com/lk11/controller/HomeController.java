@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lk11.common.response.ResponseBuilder;
 import com.lk11.common.response.ResponseI;
 import com.lk11.service.HomeService;
+import com.lk11.vo.HomeProcVO;
 import com.lk11.vo.HomeTopVO;
 import com.lk11.vo.PortAllVO;
 
@@ -35,19 +36,26 @@ public class HomeController {
 		}
 	}
 	
-	
-	
 	@RequestMapping(path = "/topStatus", method = RequestMethod.GET)
 	public ResponseI<List<HomeTopVO>> getTopStatus() {
 		try {
-			log.debug("GET Switchs");
+			log.debug("GET topStatus");
 			return homeService.getTopStatus();
 		} catch (Exception e) {
 			log.error("", e);
 			return ResponseBuilder.<List<HomeTopVO>>build().setSuccess(false).setMessage(e.getMessage());
 		}
 	}
-	
-	
+
+	@RequestMapping(path = "/proc", method = RequestMethod.GET)
+	public ResponseI<List<HomeProcVO>> getProc() {
+		try {
+			log.debug("GET Porc");
+			return homeService.getProc();
+		} catch (Exception e) {
+			log.error("", e);
+			return ResponseBuilder.<List<HomeProcVO>>build().setSuccess(false).setMessage(e.getMessage());
+		}
+	}
 	
 }

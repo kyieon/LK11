@@ -16,6 +16,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lk11.common.response.ResponseBody;
+import com.lk11.vo.HomeProcVO;
 import com.lk11.vo.HomeTopVO;
 import com.lk11.vo.PortAllVO;
 
@@ -44,6 +45,15 @@ public class HomeService {
 				String.class);
 		log.debug(responseEntity.toString());
 		return objectMapper.readValue(responseEntity.getBody(), new TypeReference<ResponseBody<List<HomeTopVO>>>() {
+		});
+	}
+
+
+	public ResponseBody<List<HomeProcVO>> getProc() throws JsonMappingException, JsonProcessingException {
+		ResponseEntity<String> responseEntity = restTemplate.exchange("/home/proc", HttpMethod.GET, HttpEntity.EMPTY,
+				String.class);
+		log.debug(responseEntity.toString());
+		return objectMapper.readValue(responseEntity.getBody(), new TypeReference<ResponseBody<List<HomeProcVO>>>() {
 		});
 	}
 }
